@@ -1,0 +1,15 @@
+body{
+    background-color: lightgrey;
+}
+
+.printbutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#webpagePrinter{
+    padding: 5px 5px;
+    border: 5px solid black;
+}
+
