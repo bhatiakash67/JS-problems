@@ -1,3 +1,5 @@
+// 1st problem
+
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 let currentDate = new Date()
@@ -11,3 +13,24 @@ let time = hours >= 12 ? "PM" : "AM"
 console.log("Today is: ", days[currentDay])
 console.log("Current time is: " + hours + time + ":" + minute + ":" + seconds)
 
+// 2nd problem
+
+let date = new Date()
+
+let dd = date.getDate()
+let mm = date.getMonth() + 1
+let yyyy = date.getFullYear()
+
+if(dd<10){
+    dd = "0" + dd
+}
+
+if(mm<10){
+    mm = "0" + mm
+}
+
+let today = dd + "-" + mm + "-" + yyyy
+console.log(today)
+today = dd + "/" + mm + "/" + yyyy 
+
+console.log(today)
