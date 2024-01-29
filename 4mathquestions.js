@@ -39,3 +39,19 @@ if (isValidTriangle()) {
     console.log(`The sides: ${sideA}, ${sideB}, ${sideC} are invalid as per the triangle inequality rule. Hence this triangle is not formed.`)
 }
 
+//Leap year or not 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    let yearValue = 2000;
+    let yearText = document.getElementById("year")
+
+    function leapYearOrNot() {
+        if (yearValue % 4 === 0 && (yearValue % 100 !== 0 || yearValue % 400 === 0)) {
+            yearText.textContent = `${yearValue} is a leap year.`
+        } else {
+            yearText.textContent = `${yearValue} is not a leap year.`
+        }
+    }
+    leapYearOrNot()
+})
