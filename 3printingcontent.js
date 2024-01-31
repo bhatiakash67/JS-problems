@@ -1,3 +1,5 @@
+//3. Printing content button
+
 const btn = document.getElementById("webpagePrinter")
 
 

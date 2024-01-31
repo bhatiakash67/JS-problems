@@ -1,4 +1,4 @@
-//Program for right rotation of a string from 1-10
+//6 .Program for right rotation of a string
 
 const words = ["NOTEBOOK", "TEXTBOOK", "TEACHER", "SCHOOL"];
 let word = words[Math.floor(Math.random() * words.length)]

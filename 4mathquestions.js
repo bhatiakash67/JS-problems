@@ -1,4 +1,4 @@
-//Area of a triangle with fixed values.
+// 5. Area of a triangle with fixed values.
 
 const a = 5, b = 6, c = 7;
 
@@ -13,7 +13,7 @@ function triangleArea() {
 }
 console.log("Area of the triangle is: " + triangleArea().toFixed(5))
 
-//Area of a triangle with random sides
+//Area of a triangle with random sides 1-10
 
 let sideA = Math.floor(Math.random() * 10) + 1
 let sideB = Math.floor(Math.random() * 10) + 1
@@ -39,7 +39,7 @@ if (isValidTriangle()) {
     console.log(`The sides: ${sideA}, ${sideB}, ${sideC} are invalid as per the triangle inequality rule. Hence this triangle is not formed.`)
 }
 
-//Leap year or not 
+//7. Leap year or not 
 
 document.addEventListener("DOMContentLoaded", function () {
 

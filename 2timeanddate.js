@@ -1,4 +1,4 @@
-// // 1st problem
+// // 2. Print a date in a format
 
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -13,7 +13,7 @@ let time = hours >= 12 ? "PM" : "AM"
 console.log("Today is: ", days[currentDay])
 console.log("Current time is: " + hours + time + ":" + minute + ":" + seconds)
 
-// // 2nd problem
+// 4. Date in a format
 
 let date = new Date()
 
@@ -34,7 +34,7 @@ console.log(today)
 today = dd + "/" + mm + "/" + yyyy
 console.log(today)
 
-// 3rd problem
+// 8. Checking of day from year to year
 
 for (let year = 2014; year <= 2050; year++) {
     const startDate = new Date(year, 0, 1)
