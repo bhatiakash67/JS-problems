@@ -1,25 +1,25 @@
 // 1. Program to check for multiples of numbers
 
-// let userInput = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "))
+let userInput = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "))
 
-// function fizzOrBuzz(){
-//     for (let i = 1; i <= userInput; i++) {
-//          if(i % 3 === 0 && i % 5 === 0 ){
-//             console.log("FizzBuzz")
-//         }
-//         else if(i % 3 === 0){
-//             console.log("Fizz")
-//         }
-//         else if(i % 5 === 0){
-//             console.log("Buzz")
-//         }
-//         else {
-//             console.log(i)
-//         }
-//     }
-// }
+function fizzOrBuzz(){
+    for (let i = 1; i <= userInput; i++) {
+         if(i % 3 === 0 && i % 5 === 0 ){
+            console.log("FizzBuzz")
+        }
+        else if(i % 3 === 0){
+            console.log("Fizz")
+        }
+        else if(i % 5 === 0){
+            console.log("Buzz")
+        }
+        else {
+            console.log(i)
+        }
+    }
+}
 
-// fizzOrBuzz()
+fizzOrBuzz()
 
 // 9. Guess the number
 
