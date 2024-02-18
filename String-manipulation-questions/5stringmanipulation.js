@@ -14,7 +14,7 @@
 // console.log(`The string is : ${word}. The rotated string after ${rotatingAmount} position right rotation is: ${rotatedString}`)
 
 
-// // string animation on webpage using slice and setInterval method
+// // String animation on webpage using slice and setInterval method
 
 // const animation = document.getElementById("rotatingString")
 // const userInput = document.getElementById("string")
@@ -41,16 +41,39 @@
 
 // 13. To get the filename extension
 
-const file = "groot.js"
+// const file = "groot.js"
 
- let filetype = file.split(".").pop()
-console.log(filetype)
+//  let filetype = file.split(".").pop()
+// console.log(filetype)
 
-//14. Create a variable using user-defined name.
+// //14. Create a variable using user-defined name.
 
-const red = "number"
-const blue = 55
+// const red = "number"
+// const blue = 55
 
-this[red] = blue
+// this[red] = blue
 
-console.log(this[red])
+// console.log(this[red])
+
+//15. Palindrome or not 
+
+const strInput = document.getElementById("palindrome-checker")
+const btn = document.getElementById("palindrome-button")
+const result = document.getElementById("result-display")
+const display = document.getElementById("palindrome-string")
+
+btn.addEventListener("click", () => {
+
+    const userInput = strInput.value.toLowerCase();  
+    
+   const reversedString = userInput.split('').reverse().join('')
+
+   display.textContent = `The string is: ${userInput}`;
+
+    if(userInput === reversedString) {
+        result.textContent = `${userInput} is a palindrome.`
+    }
+    else{
+        result.textContent = `${userInput} is not a palindrome.`
+    }
+})
