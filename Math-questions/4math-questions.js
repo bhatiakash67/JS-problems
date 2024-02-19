@@ -61,44 +61,61 @@
 
 // 11. Multiplication and division
 
-document.addEventListener("DOMContentLoaded", function(){
-    const number1Element = document.getElementById("number1")
-    const number2Element = document.getElementById("number2")
-    const multiplyButton = document.querySelector(".multiply")
-    const divideButton = document.querySelector(".divide")
-    const result = document.getElementById("result")
+// document.addEventListener("DOMContentLoaded", function(){
+//     const number1Element = document.getElementById("number1")
+//     const number2Element = document.getElementById("number2")
+//     const multiplyButton = document.querySelector(".multiply")
+//     const divideButton = document.querySelector(".divide")
+//     const result = document.getElementById("result")
 
-    function multiply() {
-        const number1 = parseFloat(number1Element.value)
-        const number2 = parseFloat(number2Element.value)
+//     function multiply() {
+//         const number1 = parseFloat(number1Element.value)
+//         const number2 = parseFloat(number2Element.value)
 
-        const multipliedValue = number1 * number2
-        return multipliedValue
+//         const multipliedValue = number1 * number2
+//         return multipliedValue
+//     }
+
+//     function divide() {
+//         const number1 = parseFloat(number1Element.value)
+//         const number2 = parseFloat(number2Element.value)
+
+//         if (number2 ===   0) {
+//             alert("Cannot divide by zero!");
+//             return;
+//         }
+
+//         const dividedValue = number1 / number2;
+//         console.log(dividedValue)
+//         return dividedValue
+//     }
+
+//     multiplyButton.addEventListener("click", () => {
+//         const multipliedValue = multiply()
+
+//         result.textContent = `The result is: ${multipliedValue}`
+//     })
+
+//     divideButton.addEventListener("click", () => {
+//         const dividedValue = divide()
+
+//         result.textContent = `The result is: ${dividedValue}`
+//     })
+// })
+
+// 16. To get the difference between a given number and 13, if the number is broader than 13 return double the absolute difference.
+
+function calculator(num) {
+    let diff = Math.abs(num - 13)
+
+    if(diff > 13){
+       return newNumber = diff ** 2
     }
-
-    function divide() {
-        const number1 = parseFloat(number1Element.value)
-        const number2 = parseFloat(number2Element.value)
-
-        if (number2 ===   0) {
-            alert("Cannot divide by zero!");
-            return;
-        }
-
-        const dividedValue = number1 / number2;
-        console.log(dividedValue)
-        return dividedValue
+    else {
+        return diff
     }
+}
 
-    multiplyButton.addEventListener("click", () => {
-        const multipliedValue = multiply()
-
-        result.textContent = `The result is: ${multipliedValue}`
-    })
-
-    divideButton.addEventListener("click", () => {
-        const dividedValue = divide()
-
-        result.textContent = `The result is: ${dividedValue}`
-    })
-})
+console.log(calculator(550))
+console.log(calculator(50))
+console.log(calculator(5))
