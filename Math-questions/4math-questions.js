@@ -105,17 +105,45 @@
 
 // 16. To get the difference between a given number and 13, if the number is broader than 13 return double the absolute difference.
 
-function calculator(num) {
-    let diff = Math.abs(num - 13)
+// function calculator(num) {
+//     let diff = Math.abs(num - 13)
 
-    if(diff > 13){
-       return newNumber = diff ** 2
+//     if(diff > 13){
+//        return newNumber = diff ** 2
+//     }
+//     else {
+//         return diff
+//     }
+// }
+
+// console.log(calculator(550))
+// console.log(calculator(50))
+// console.log(calculator(5))
+
+// 17. Compute the sum of the two given integers. If the two values are the same, then return triple their sum.
+
+const firstInput = document.getElementById("17first-num")
+const secondInput = document.getElementById("17second-num")
+const btnOne = document.getElementById("17first-btn")
+const btnTwo = document.getElementById("17second-btn")
+const result = document.getElementById("17-question-result")
+
+function sumCondition(x, y) {
+    if(x === y){
+        return (x + y) * 3
     }
-    else {
-        return diff
+    else{
+        return x + y
     }
 }
 
-console.log(calculator(550))
-console.log(calculator(50))
-console.log(calculator(5))
+btnOne.addEventListener("click", () => {
+    const x = parseFloat(firstInput.value)
+    result.textContent = `The result is: ${isNaN(x) ? "Invalid Input" : sumCondition(x, x) }`
+})
+
+btnTwo.addEventListener("click", () => {
+    const x = parseFloat(firstInput.value)
+    const y = parseFloat(secondInput.value)
+    result.textContent = `The result is: ${isNaN(x) || isNaN(y) ? "Invalid INput" : sumCondition(x, y)}`
+})
