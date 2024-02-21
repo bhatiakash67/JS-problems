@@ -122,28 +122,51 @@
 
 // 17. Compute the sum of the two given integers. If the two values are the same, then return triple their sum.
 
-const firstInput = document.getElementById("17first-num")
-const secondInput = document.getElementById("17second-num")
-const btnOne = document.getElementById("17first-btn")
-const btnTwo = document.getElementById("17second-btn")
-const result = document.getElementById("17-question-result")
+// const firstInput = document.getElementById("17first-num")
+// const secondInput = document.getElementById("17second-num")
+// const btnOne = document.getElementById("17first-btn")
+// const btnTwo = document.getElementById("17second-btn")
+// const result = document.getElementById("17-question-result")
 
-function sumCondition(x, y) {
-    if(x === y){
-        return (x + y) * 3
-    }
-    else{
-        return x + y
+// function sumCondition(x, y) {
+//     if(x === y){
+//         return (x + y) * 3
+//     }
+//     else{
+//         return x + y
+//     }
+// }
+
+// btnOne.addEventListener("click", () => {
+//     const x = parseFloat(firstInput.value)
+//     result.textContent = `The result is: ${isNaN(x) ? "Invalid Input" : sumCondition(x, x) }`
+// })
+
+// btnTwo.addEventListener("click", () => {
+//     const x = parseFloat(firstInput.value)
+//     const y = parseFloat(secondInput.value)
+//     result.textContent = `The result is: ${isNaN(x) || isNaN(y) ? "Invalid Input" : sumCondition(x, y)}`
+// })
+
+// 18. Compute the absolute difference between a specified number and 19. Returns triple the absolute difference if the specified number is greater than 19.  
+
+const inputValue = document.getElementById("q18-input")
+const btn = document.getElementById("q18-btn")
+const userInput = document.getElementById("q18-num-entered")
+const result = document.getElementById("q18-result")
+
+function Mathproblem(x) {
+    if (x > 19) {
+        ans = Math.abs(x - 19)
+        return ans * 3
+    } else {
+        return ans = Math.abs(x - 19)
     }
 }
 
-btnOne.addEventListener("click", () => {
-    const x = parseFloat(firstInput.value)
-    result.textContent = `The result is: ${isNaN(x) ? "Invalid Input" : sumCondition(x, x) }`
-})
+btn.addEventListener("click", () => {
 
-btnTwo.addEventListener("click", () => {
-    const x = parseFloat(firstInput.value)
-    const y = parseFloat(secondInput.value)
-    result.textContent = `The result is: ${isNaN(x) || isNaN(y) ? "Invalid INput" : sumCondition(x, y)}`
+const x = parseFloat(inputValue.value)
+userInput.textContent = `The number entered is: ${ x }`
+result.textContent = `The result is: ${isNaN(x) ? "Invalid Input" : Mathproblem(x)}`
 })
