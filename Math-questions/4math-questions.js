@@ -150,23 +150,51 @@
 
 // 18. Compute the absolute difference between a specified number and 19. Returns triple the absolute difference if the specified number is greater than 19.  
 
-const inputValue = document.getElementById("q18-input")
-const btn = document.getElementById("q18-btn")
-const userInput = document.getElementById("q18-num-entered")
-const result = document.getElementById("q18-result")
+// const inputValue = document.getElementById("q18-input")
+// const btn = document.getElementById("q18-btn")
+// const userInput = document.getElementById("q18-num-entered")
+// const result = document.getElementById("q18-result")
 
-function Mathproblem(x) {
-    if (x > 19) {
-        ans = Math.abs(x - 19)
-        return ans * 3
-    } else {
-        return ans = Math.abs(x - 19)
-    }
-}
+// function Mathproblem(x) {
+//     ans = Math.abs( x - 19)
+//     return x > 19 ? ans * 3 : ans ;
+// }
+
+// btn.addEventListener("click", () => {
+
+// const x = parseFloat(inputValue.value)
+// userInput.textContent = `The number entered is: ${ x }`
+// result.textContent = `The result is: ${isNaN(x) ? "Invalid Input" : Mathproblem(x)}`
+// })
+
+// 19. Write a JavaScript program to check a pair of numbers and return true if one of the numbers is 50 or if their sum is 50. 
+
+const userInputA = document.getElementById('q-19x')
+const userInputB = document.getElementById("q-19y")
+const btn = document.getElementById("q-19btn")
+const xValue = document.getElementById("q-19input1display")
+const yValue = document.getElementById("q-19input2display")
+const result = document.getElementById("q19-result")
 
 btn.addEventListener("click", () => {
+    
+const x = parseFloat(userInputA.value)
+const y = parseFloat(userInputB.value)
 
-const x = parseFloat(inputValue.value)
-userInput.textContent = `The number entered is: ${ x }`
-result.textContent = `The result is: ${isNaN(x) ? "Invalid Input" : Mathproblem(x)}`
+ xValue.textContent = `X = ${x}`
+yValue.textContent = `Y = ${y}`
+
+if(x === 50 || y === 50) {
+    result.textContent = `It is true because ${x === 50 ? 'x = 50' : 'y = 50'}`
+}
+else if(x + y === 50) {
+    result.textContent = `It is true because ${x} + ${y} = ${x+y}`
+}
+else {
+   result.textContent =  ` ${!isNaN(x + y) ? `It is not true because ${x} + ${y} is not equal to 50` : 'Enter valid numbers.'}`
+}
 })
+
+
+// 20. Write a JavaScript program to check whether a given integer is within 20 of 100 or 400.  
+
