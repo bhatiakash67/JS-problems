@@ -198,26 +198,57 @@
 
 // 20. Write a JavaScript program to check whether a given integer is within 20 of 100 or 400. 
 
-const userInput = document.getElementById("q20-input")
-const btn = document.getElementById("q20-btn")
-const userInputValue = document.getElementById("userinputvalue")
-const result = document.getElementById("rst")
+// const userInput = document.getElementById("q20-input")
+// const btn = document.getElementById("q20-btn")
+// const userInputValue = document.getElementById("userinputvalue")
+// const result = document.getElementById("rst")
+
+// btn.addEventListener("click", () => {
+
+//     const x = parseFloat(userInput.value)
+//     const first = Math.abs(x - 200)
+//     const second = Math.abs(x - 400)
+
+//     if (first <= 20 || second <= 20) {
+//         userInputValue.textContent = `User Input = ${!isNaN(x) ? x : "Enter a valid number."}`
+//         result.textContent = `It is true.`
+//     }
+//     else {
+
+//             userInputValue.textContent = `User Input = ${!isNaN(x) ? x : "Enter a valid number."}`
+//             result.textContent = `It is not true.`
+
+//     }
+// })
+
+// 21. Write a JavaScript program to check two given integers whether one is positive and another one is negative.
+
+const userInputA = document.getElementById("q-21-input1")
+const userInputB = document.getElementById("q-21-input2")
+const btn = document.getElementById("q-21-btn")
+const x = document.getElementById("q-21-valuea")
+const y = document.getElementById("q-21-valueb")
+const result = document.getElementById("q-21-result")
 
 btn.addEventListener("click", () => {
 
-    const x = parseFloat(userInput.value)
-    const first = Math.abs(x - 200)
-    const second = Math.abs(x - 400)
+    const inputA = parseFloat(userInputA.value)
+    const inputB = parseFloat(userInputB.value)
 
-    if (first <= 20 || second <= 20) {
-        userInputValue.textContent = `User Input = ${!isNaN(x) ? x : "Enter a valid number."}`
-        result.textContent = `It is true.`
-    }
-    else {
-       
-            userInputValue.textContent = `User Input = ${!isNaN(x) ? x : "Enter a valid number."}`
-            result.textContent = `It is not true.`
-        
+    if (!isNaN(inputA) && !isNaN(inputB)) {
+        x.textContent = `X = ${inputA}`
+        y.textContent = `Y = ${inputB}`
+
+        if ((inputA < 0 && inputB > 0) || (inputA > 0 && inputB < 0)) {
+            result.textContent = `It is true.`
+        }
+        else {
+            result.textContent = `It is false.`
+        }
+
+    } else {
+        result.textContent = `Enter a valid number.`
     }
 
+    
 })
