@@ -57,23 +57,55 @@
 
 //15. Palindrome or not 
 
-const strInput = document.getElementById("palindrome-checker")
-const btn = document.getElementById("palindrome-button")
-const result = document.getElementById("result-display")
-const display = document.getElementById("palindrome-string")
+// const strInput = document.getElementById("palindrome-checker")
+// const btn = document.getElementById("palindrome-button")
+// const result = document.getElementById("result-display")
+// const display = document.getElementById("palindrome-string")
+
+// btn.addEventListener("click", () => {
+
+//     const userInput = strInput.value.toLowerCase();  
+
+//    const reversedString = userInput.split('').reverse().join('')
+
+//    display.textContent = `The string is: ${userInput}`;
+
+//     if(userInput === reversedString) {
+//         result.textContent = `${userInput} is a palindrome.`
+//     }
+//     else{
+//         result.textContent = `${userInput} is not a palindrome.`
+//     }
+// })
+
+// 22. Write a JavaScript program to create another string by adding "Py" in front of a given string. If the given string begins with "Py" return the original string. 
+
+const userInput = document.getElementById("q-22-input")
+const btn = document.getElementById("q-22-btn")
+const inputValue = document.getElementById("q-22-user-input")
+const result = document.getElementById("q-22-result")
 
 btn.addEventListener("click", () => {
+try {
+    const char = (userInput.value).trim().toLowerCase()
 
-    const userInput = strInput.value.toLowerCase();  
-    
-   const reversedString = userInput.split('').reverse().join('')
-
-   display.textContent = `The string is: ${userInput}`;
-
-    if(userInput === reversedString) {
-        result.textContent = `${userInput} is a palindrome.`
+    if (typeof char !== 'string' || !isNaN(parseFloat(char))) {
+        throw new Error("We take only string values.")
     }
-    else{
-        result.textContent = `${userInput} is not a palindrome.`
+
+    if (!char) {
+        throw new Error("Please enter a valid string.")
+    }
+
+    inputValue.textContent = `Input: ${char}`
+
+    if (char.startsWith("py")) {
+        return result.textContent = `Result: ${char}`
+    } else {
+        return result.textContent = `Result: Py${char}`
+    }
+}
+    catch(error) {
+        result.textContent = `Error: ${'Only String inputs allowed.'}`
     }
 })
