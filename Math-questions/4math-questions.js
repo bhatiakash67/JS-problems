@@ -205,23 +205,32 @@
 
 // btn.addEventListener("click", () => {
 
-//     const x = parseFloat(userInput.value)
-//     const first = Math.abs(x - 200)
-//     const second = Math.abs(x - 400)
+//     try {
+//         const x = parseFloat(userInput.value)
+//         const first = Math.abs(x - 200)
+//         const second = Math.abs(x - 400)
 
-//     if (first <= 20 || second <= 20) {
-//         userInputValue.textContent = `User Input = ${!isNaN(x) ? x : "Enter a valid number."}`
-//         result.textContent = `It is true.`
+//         if (isNaN(first) || isNaN(second)) {
+//             throw new Error("Please enter a value.")
+//         }
+//         if (!isNaN(first) && !isNaN(first)) {
+//             if (first <= 20 || second <= 20) {
+//                 userInputValue.textContent = `User Input = ${x}`
+//                 result.textContent = `It is true.`
+//             }
+//             else {
+//                 userInputValue.textContent = `User Input = ${x}`
+//                 result.textContent = `It is not true.`
+//             }
+//         }
 //     }
-//     else {
-
-//             userInputValue.textContent = `User Input = ${!isNaN(x) ? x : "Enter a valid number."}`
-//             result.textContent = `It is not true.`
-
+//     catch (error) {
+//         alert(error.message)
 //     }
 // })
 
-// 21. Write a JavaScript program to check two given integers whether one is positive and another one is negative.
+// 21. Write a JavaScript program to check two given integers whether one is positive and another one is
+// negative.
 
 const userInputA = document.getElementById("q-21-input1")
 const userInputB = document.getElementById("q-21-input2")
@@ -231,24 +240,25 @@ const y = document.getElementById("q-21-valueb")
 const result = document.getElementById("q-21-result")
 
 btn.addEventListener("click", () => {
+    try {
+        const inputA = parseFloat(userInputA.value)
+        const inputB = parseFloat(userInputB.value)
 
-    const inputA = parseFloat(userInputA.value)
-    const inputB = parseFloat(userInputB.value)
-
-    if (!isNaN(inputA) && !isNaN(inputB)) {
-        x.textContent = `X = ${inputA}`
-        y.textContent = `Y = ${inputB}`
-
+        if (!isNaN(inputA) && !isNaN(inputB)) {
+            x.textContent = `X = ${inputA}`
+            y.textContent = `Y = ${inputB}`
+        }
+        if (isNaN(inputA) || isNaN(inputB)) {
+            throw new Error("Please enter a value.")
+        }
         if ((inputA < 0 && inputB > 0) || (inputA > 0 && inputB < 0)) {
             result.textContent = `It is true.`
         }
         else {
             result.textContent = `It is false.`
         }
-
-    } else {
-        result.textContent = `Enter a valid number.`
     }
-
-    
+    catch (error) {
+        alert(error.message)
+    }
 })

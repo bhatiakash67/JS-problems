@@ -86,26 +86,23 @@ const inputValue = document.getElementById("q-22-user-input")
 const result = document.getElementById("q-22-result")
 
 btn.addEventListener("click", () => {
-try {
-    const char = (userInput.value).trim().toLowerCase()
+    try {
+        const char = (userInput.value).trim().toLowerCase()
 
-    if (typeof char !== 'string' || !isNaN(parseFloat(char))) {
-        throw new Error("We take only string values.")
+        if (typeof char !== 'string' || !isNaN(parseFloat(char))) {
+            throw new Error("We only take string values.")
+        }
+        if (char === '') {
+            throw new Error("Please enter a value.")
+        }
+        inputValue.textContent = `Input: ${char}`
+        if (char.startsWith("py")) {
+            return result.textContent = `Result: ${char}`
+        } else {
+            return result.textContent = `Result: Py${char}`
+        }
     }
-
-    if (!char) {
-        throw new Error("Please enter a valid string.")
-    }
-
-    inputValue.textContent = `Input: ${char}`
-
-    if (char.startsWith("py")) {
-        return result.textContent = `Result: ${char}`
-    } else {
-        return result.textContent = `Result: Py${char}`
-    }
-}
-    catch(error) {
-        result.textContent = `Error: ${'Only String inputs allowed.'}`
+    catch (error) {
+        alert(error.message)
     }
 })
