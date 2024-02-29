@@ -109,52 +109,91 @@
 
 // 23. Write a JavaScript program to remove a character at the specified position in a given string and return the modified string.
 
-const inputString = document.getElementById("q-23-userinput-string")
-const stringBtn = document.getElementById("q-23-string-btn")
-const stringValue = document.getElementById("q-23-string-display")
-const inputPosition = document.getElementById("q-23-userinput-position")
-const positionBtn = document.getElementById("q-23-position-btn")
-const posiitonValue = document.getElementById("q-23-position-display")
-const charAtPosition = document.getElementById("q-23-char-display")
-const result = document.getElementById("q-23-result")
+// const inputString = document.getElementById("q-23-userinput-string")
+// const stringBtn = document.getElementById("q-23-string-btn")
+// const stringValue = document.getElementById("q-23-string-display")
+// const inputPosition = document.getElementById("q-23-userinput-position")
+// const positionBtn = document.getElementById("q-23-position-btn")
+// const posiitonValue = document.getElementById("q-23-position-display")
+// const charAtPosition = document.getElementById("q-23-char-display")
+// const result = document.getElementById("q-23-result")
 
-stringBtn.addEventListener("click", () => {
-    let input = inputString.value.trim().toLowerCase()
+// stringBtn.addEventListener("click", () => {
+//     let input = inputString.value.trim().toLowerCase()
+//     try {
+//         if (input === '') {
+//             throw new Error("Please enter a string.")
+//         }
+//         if (!isNaN(input)) {
+//             throw new Error("We only take string values.")
+//         }
+//         stringValue.textContent = `The entered string is: ${input}`
+//     }
+//     catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// positionBtn.addEventListener("click", () => {
+//     let positionForUpdate = parseFloat(inputPosition.value)
+//     let input = inputString.value.trim().toLowerCase()
+//     try {
+//         if (isNaN(positionForUpdate)) {
+//             throw new Error("Please enter a number here.")
+//         }
+//         if (positionForUpdate < 1 || positionForUpdate > input.length) {
+//             throw new Error("Position is out of range.")
+//         }
+//         posiitonValue.textContent = `Position given: ${positionForUpdate}`
+//         const removedChar = input.charAt(positionForUpdate - 1)
+//         charAtPosition.textContent = `Character at given position is: ${removedChar.toUpperCase()}`
+//         const updatedString = input.slice(0, positionForUpdate - 1) + input.slice(positionForUpdate)
+//         updatedString
+//         result.textContent = `Updated string is: ${updatedString.toUpperCase()}`
+//     }
+//     catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 24. Write a JavaScript program to create a new string from a given string by changing the position of the first and last characters. The string length must be broader than or equal to 1.
+
+const inputValue = document.getElementById("q-24-input")
+const btn = document.getElementById("q-24-btn")
+const userInput = document.getElementById("q-24-userinput")
+const firstChar = document.getElementById("q-24-char1")
+const lastChar = document.getElementById("q-24-char2")
+const result = document.getElementById("q-24-result")
+
+btn.addEventListener("click", () => {
+    const input = inputValue.value.trim().toLowerCase()
 
     try {
+        // Errors 
         if (input === '') {
             throw new Error("Please enter a string.")
         }
-        if (!isNaN(input)) {
-            throw new Error("We only take string values.")
+        // To check if input is not any aspecial character or number
+        if ( /[^\w\s]/.test(input) || /\d/.test(input) ) {
+            throw new Error("We only take non-null string values.")
         }
-        stringValue.textContent = `The entered string is: ${input}`
+
+        userInput.textContent = `The entered string is: ${input}`
+
+        if (input.length <= 1) {
+            result.textContent = `The updated string is: ${input}`
+        } else {
+            // Logic block to replace the first and the last characters in a string
+            const firstCharacter = input[0]
+            firstChar.textContent = `The first character is: ${firstCharacter}`
+            const lastCharacter = input[input.length - 1]
+            lastChar.textContent = `The last character is: ${lastCharacter}`
+            const leftoverCharacters = input.substring(1, input.length - 1)
+            const changedString = lastCharacter + leftoverCharacters + firstCharacter
+            result.textContent = `Updated string is: ${changedString}`
+        }
     }
     catch (error) {
         alert(error.message)
     }
 })
-
-positionBtn.addEventListener("click", () => {
-    let positionForUpdate = parseFloat(inputPosition.value)
-    let input = inputString.value.trim().toLowerCase()
-
-    try {
-        if (isNaN(positionForUpdate)) {
-            throw new Error("Please enter a number here.")
-        }
-        if (positionForUpdate < 1 || positionForUpdate > input.length) {
-            throw new Error("Position is out of range.")
-        }
-        posiitonValue.textContent = `Position given: ${positionForUpdate}`
-        const removedChar = input.charAt(positionForUpdate - 1)
-        charAtPosition.textContent = `Character at given position is: ${removedChar.toUpperCase()}`
-        const updatedString = input.slice(0, positionForUpdate - 1) + input.slice(positionForUpdate)
-        updatedString
-        result.textContent = `Updated string is: ${updatedString.toUpperCase()}`
-    }
-    catch (error) {
-        alert(error.message)
-    }
-})
-
