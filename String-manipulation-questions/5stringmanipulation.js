@@ -80,29 +80,81 @@
 
 // 22. Write a JavaScript program to create another string by adding "Py" in front of a given string. If the given string begins with "Py" return the original string. 
 
-const userInput = document.getElementById("q-22-input")
-const btn = document.getElementById("q-22-btn")
-const inputValue = document.getElementById("q-22-user-input")
-const result = document.getElementById("q-22-result")
+// const userInput = document.getElementById("q-22-input")
+// const btn = document.getElementById("q-22-btn")
+// const inputValue = document.getElementById("q-22-user-input")
+// const result = document.getElementById("q-22-result")
 
-btn.addEventListener("click", () => {
+// btn.addEventListener("click", () => {
+//     try {
+//         const char = (userInput.value).trim().toLowerCase()
+
+//         if (typeof char !== 'string' || !isNaN(parseFloat(char))) {
+//             throw new Error("We only take string values.")
+//         }
+//         if (char === '') {
+//             throw new Error("Please enter a value.")
+//         }
+//         inputValue.textContent = `Input: ${char}`
+//         if (char.startsWith("py")) {
+//             return result.textContent = `Result: ${char}`
+//         } else {
+//             return result.textContent = `Result: Py${char}`
+//         }
+//     }
+//     catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 23. Write a JavaScript program to remove a character at the specified position in a given string and return the modified string.
+
+const inputString = document.getElementById("q-23-userinput-string")
+const stringBtn = document.getElementById("q-23-string-btn")
+const stringValue = document.getElementById("q-23-string-display")
+const inputPosition = document.getElementById("q-23-userinput-position")
+const positionBtn = document.getElementById("q-23-position-btn")
+const posiitonValue = document.getElementById("q-23-position-display")
+const charAtPosition = document.getElementById("q-23-char-display")
+const result = document.getElementById("q-23-result")
+
+stringBtn.addEventListener("click", () => {
+    let input = inputString.value.trim().toLowerCase()
+
     try {
-        const char = (userInput.value).trim().toLowerCase()
-
-        if (typeof char !== 'string' || !isNaN(parseFloat(char))) {
+        if (input === '') {
+            throw new Error("Please enter a string.")
+        }
+        if (!isNaN(input)) {
             throw new Error("We only take string values.")
         }
-        if (char === '') {
-            throw new Error("Please enter a value.")
-        }
-        inputValue.textContent = `Input: ${char}`
-        if (char.startsWith("py")) {
-            return result.textContent = `Result: ${char}`
-        } else {
-            return result.textContent = `Result: Py${char}`
-        }
+        stringValue.textContent = `The entered string is: ${input}`
     }
     catch (error) {
         alert(error.message)
     }
 })
+
+positionBtn.addEventListener("click", () => {
+    let positionForUpdate = parseFloat(inputPosition.value)
+    let input = inputString.value.trim().toLowerCase()
+
+    try {
+        if (isNaN(positionForUpdate)) {
+            throw new Error("Please enter a number here.")
+        }
+        if (positionForUpdate < 1 || positionForUpdate > input.length) {
+            throw new Error("Position is out of range.")
+        }
+        posiitonValue.textContent = `Position given: ${positionForUpdate}`
+        const removedChar = input.charAt(positionForUpdate - 1)
+        charAtPosition.textContent = `Character at given position is: ${removedChar.toUpperCase()}`
+        const updatedString = input.slice(0, positionForUpdate - 1) + input.slice(positionForUpdate)
+        updatedString
+        result.textContent = `Updated string is: ${updatedString.toUpperCase()}`
+    }
+    catch (error) {
+        alert(error.message)
+    }
+})
+
