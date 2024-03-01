@@ -158,42 +158,73 @@
 
 // 24. Write a JavaScript program to create a new string from a given string by changing the position of the first and last characters. The string length must be broader than or equal to 1.
 
-const inputValue = document.getElementById("q-24-input")
-const btn = document.getElementById("q-24-btn")
-const userInput = document.getElementById("q-24-userinput")
-const firstChar = document.getElementById("q-24-char1")
-const lastChar = document.getElementById("q-24-char2")
-const result = document.getElementById("q-24-result")
+// const inputValue = document.getElementById("q-24-input")
+// const btn = document.getElementById("q-24-btn")
+// const userInput = document.getElementById("q-24-userinput")
+// const firstChar = document.getElementById("q-24-char1")
+// const lastChar = document.getElementById("q-24-char2")
+// const result = document.getElementById("q-24-result")
+
+// btn.addEventListener("click", () => {
+//     const input = inputValue.value.trim().toLowerCase()
+
+//     try {
+//         // Errors 
+//         if (input === '') {
+//             throw new Error("Please enter a string.")
+//         }
+//         // To check if input is not any aspecial character or number
+//         if (/[^\w\s]/.test(input) || /\d/.test(input)) {
+//             throw new Error("We only take non-null string values.")
+//         }
+
+//         userInput.textContent = `The entered string is: ${input}`
+
+//         if (input.length <= 1) {
+//             result.textContent = `The updated string is: ${input}`
+//         } else {
+//             // Logic block to replace the first and the last characters in a string
+//             const firstCharacter = input[0]
+//             firstChar.textContent = `The first character is: ${firstCharacter}`
+//             const lastCharacter = input[input.length - 1]
+//             lastChar.textContent = `The last character is: ${lastCharacter}`
+//             const leftoverCharacters = input.substring(1, input.length - 1)
+//             const changedString = lastCharacter + leftoverCharacters + firstCharacter
+//             result.textContent = `Updated string is: ${changedString}`
+//         }
+//     }
+//     catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 25. Write a JavaScript program to create another string from a given string with the first character of the given string added to the front and back.  
+
+const userInput = document.getElementById("q-25-input")
+const btn = document.getElementById("q-25-btn")
+const char = document.getElementById("q-25-firstchr")
+const result = document.getElementById("q-25-result")
 
 btn.addEventListener("click", () => {
-    const input = inputValue.value.trim().toLowerCase()
+    input = userInput.value.trim().toLowerCase();
 
     try {
-        // Errors 
-        if (input === '') {
-            throw new Error("Please enter a string.")
+        if (!input) {
+            throw new Error("Please enter a value.")
         }
-        // To check if input is not any aspecial character or number
-        if ( /[^\w\s]/.test(input) || /\d/.test(input) ) {
-            throw new Error("We only take non-null string values.")
+        if (/\d/.test(input) || (/[^\w\s]/.test(input))) {
+            throw new Error("We only take string values.")
         }
-
-        userInput.textContent = `The entered string is: ${input}`
-
-        if (input.length <= 1) {
-            result.textContent = `The updated string is: ${input}`
-        } else {
-            // Logic block to replace the first and the last characters in a string
-            const firstCharacter = input[0]
-            firstChar.textContent = `The first character is: ${firstCharacter}`
-            const lastCharacter = input[input.length - 1]
-            lastChar.textContent = `The last character is: ${lastCharacter}`
-            const leftoverCharacters = input.substring(1, input.length - 1)
-            const changedString = lastCharacter + leftoverCharacters + firstCharacter
-            result.textContent = `Updated string is: ${changedString}`
+        if (input.length === 1) {
+            char.textContent = `The first character of the string is: ${input}`
+            result.textContent = `Updated string is: ${input}. Go find a job.`
         }
-    }
-    catch (error) {
+        if (input.length > 1) {
+            const firstChar = input.charAt(0)
+            char.textContent = `The first character of the string is: ${firstChar}`
+            result.textContent = `Updated string is: ${firstChar + input + firstChar}`
+        }
+    } catch (error) {
         alert(error.message)
     }
 })
