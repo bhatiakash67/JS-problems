@@ -232,30 +232,62 @@
 // 21. Write a JavaScript program to check two given integers whether one is positive and another one is
 // negative.
 
-const userInputA = document.getElementById("q-21-input1")
-const userInputB = document.getElementById("q-21-input2")
-const btn = document.getElementById("q-21-btn")
-const x = document.getElementById("q-21-valuea")
-const y = document.getElementById("q-21-valueb")
-const result = document.getElementById("q-21-result")
+// const userInputA = document.getElementById("q-21-input1")
+// const userInputB = document.getElementById("q-21-input2")
+// const btn = document.getElementById("q-21-btn")
+// const x = document.getElementById("q-21-valuea")
+// const y = document.getElementById("q-21-valueb")
+// const result = document.getElementById("q-21-result")
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const inputA = parseFloat(userInputA.value)
+//         const inputB = parseFloat(userInputB.value)
+
+//         if (!isNaN(inputA) && !isNaN(inputB)) {
+//             x.textContent = `X = ${inputA}`
+//             y.textContent = `Y = ${inputB}`
+//         }
+//         if (isNaN(inputA) || isNaN(inputB)) {
+//             throw new Error("Please enter a value.")
+//         }
+//         if ((inputA < 0 && inputB > 0) || (inputA > 0 && inputB < 0)) {
+//             result.textContent = `It is true.`
+//         }
+//         else {
+//             result.textContent = `It is false.`
+//         }
+//     }
+//     catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 26. Write a JavaScript program to check whether a given positive number is a multiple of 3 or 7. 
+
+const userInput = document.getElementById("q-26-input")
+const btn = document.getElementById("q-26-btn")
+const num = document.getElementById("q-26-display")
+const result = document.getElementById("q-26-result")
 
 btn.addEventListener("click", () => {
-    try {
-        const inputA = parseFloat(userInputA.value)
-        const inputB = parseFloat(userInputB.value)
 
-        if (!isNaN(inputA) && !isNaN(inputB)) {
-            x.textContent = `X = ${inputA}`
-            y.textContent = `Y = ${inputB}`
+    try {
+        const input = parseFloat(userInput.value)
+        if (isNaN(input)) {
+            throw new Error("Please enter a number.")
         }
-        if (isNaN(inputA) || isNaN(inputB)) {
-            throw new Error("Please enter a value.")
+        if (input < 0) {
+            throw new Error("Only positive integer values allowed.")
         }
-        if ((inputA < 0 && inputB > 0) || (inputA > 0 && inputB < 0)) {
-            result.textContent = `It is true.`
-        }
-        else {
-            result.textContent = `It is false.`
+        if (input >= 0) {
+            if (input % 3 === 0 || input % 7 === 0) {
+                num.textContent = `The input value is: ${input}`
+                result.textContent = `True. ${input % 3 === 0 ? input+' is a multiple of 3.' : input+' is a multiple of 7.'}`
+            }else{
+                num.textContent = ``
+                result.textContent = `${input} is not a multiple of 3 or 7.`
+            }
         }
     }
     catch (error) {
