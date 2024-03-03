@@ -200,31 +200,64 @@
 
 // 25. Write a JavaScript program to create another string from a given string with the first character of the given string added to the front and back.  
 
-const userInput = document.getElementById("q-25-input")
-const btn = document.getElementById("q-25-btn")
-const char = document.getElementById("q-25-firstchr")
-const result = document.getElementById("q-25-result")
+// const userInput = document.getElementById("q-25-input")
+// const btn = document.getElementById("q-25-btn")
+// const char = document.getElementById("q-25-firstchr")
+// const result = document.getElementById("q-25-result")
+
+// btn.addEventListener("click", () => {
+//     input = userInput.value.trim().toLowerCase();
+//     try {
+//         if (!input) {
+//             throw new Error("Please enter a value.")
+//         }
+//         if (/\d/.test(input) || (/[^\w\s]/.test(input))) {
+//             throw new Error("We only take string values.")
+//         }
+//         if (input.length === 1) {
+//             char.textContent = `The first character of the string is: ${input}`
+//             result.textContent = `Updated string is: ${input}. Go find a job.`
+//         }
+//         if (input.length > 1) {
+//             const firstChar = input.charAt(0)
+//             char.textContent = `The first character of the string is: ${firstChar}`
+//             result.textContent = `Updated string is: ${firstChar + input + firstChar}`
+//         }
+//     } catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 27. Write a JavaScript program to create a string from a given string. This is done by taking the last 3 characters and adding them at both the front and back. The string length must be 3 or more.  
+
+const inputValue = document.getElementById("q-27-input")
+const btn = document.getElementById("q-27-btn")
+const userInput = document.getElementById("q-27-display")
+const stringToAdd = document.getElementById("q-27-stringpart")
+const result = document.getElementById("q-27-result")
 
 btn.addEventListener("click", () => {
-    input = userInput.value.trim().toLowerCase();
 
+    const input = inputValue.value.trim().toLowerCase()
     try {
         if (!input) {
             throw new Error("Please enter a value.")
         }
-        if (/\d/.test(input) || (/[^\w\s]/.test(input))) {
+        if (/\d/.test(input) || /[^\w\s]/.test(input)) {
             throw new Error("We only take string values.")
         }
-        if (input.length === 1) {
-            char.textContent = `The first character of the string is: ${input}`
-            result.textContent = `Updated string is: ${input}. Go find a job.`
+        if(input.length < 3) {
+            throw new Error("Please enter a string of length 3 or more.")
         }
-        if (input.length > 1) {
-            const firstChar = input.charAt(0)
-            char.textContent = `The first character of the string is: ${firstChar}`
-            result.textContent = `Updated string is: ${firstChar + input + firstChar}`
+        if(input.length >= 3){
+            userInput.textContent = `Your input: ${input}`
+            const noOfChars = 3
+            const chars = input.slice(-noOfChars)
+            stringToAdd.textContent = `The last 3 characters of the given string are: ${chars}`
+            result.textContent = `The updated string is: ${chars.toUpperCase() + input + chars.toUpperCase()}`
         }
-    } catch (error) {
+    }
+    catch (error) {
         alert(error.message)
     }
 })
