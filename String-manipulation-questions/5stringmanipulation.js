@@ -230,34 +230,65 @@
 
 // 27. Write a JavaScript program to create a string from a given string. This is done by taking the last 3 characters and adding them at both the front and back. The string length must be 3 or more.  
 
-const inputValue = document.getElementById("q-27-input")
-const btn = document.getElementById("q-27-btn")
-const userInput = document.getElementById("q-27-display")
-const stringToAdd = document.getElementById("q-27-stringpart")
-const result = document.getElementById("q-27-result")
+// const inputValue = document.getElementById("q-27-input")
+// const btn = document.getElementById("q-27-btn")
+// const userInput = document.getElementById("q-27-display")
+// const stringToAdd = document.getElementById("q-27-stringpart")
+// const result = document.getElementById("q-27-result")
+
+// btn.addEventListener("click", () => {
+
+//     const input = inputValue.value.trim().toLowerCase()
+//     try {
+//         if (!input) {
+//             throw new Error("Please enter a value.")
+//         }
+//         if (/\d/.test(input) || /[^\w\s]/.test(input)) {
+//             throw new Error("We only take string values.")
+//         }
+//         if(input.length < 3) {
+//             throw new Error("Please enter a string of length 3 or more.")
+//         }
+//         if(input.length >= 3){
+//             userInput.textContent = `Your input: ${input}`
+//             const noOfChars = 3
+//             const chars = input.slice(-noOfChars)
+//             stringToAdd.textContent = `The last 3 characters of the given string are: ${chars}`
+//             result.textContent = `The updated string is: ${chars.toUpperCase() + input + chars.toUpperCase()}`
+//         }
+//     }
+//     catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 28. Write a JavaScript program to check whether a string starts with 'Java' if it does not otherwise.  
+
+const inputValue = document.getElementById("q-28-input")
+const btn = document.getElementById("q-28-btn")
+const userInput = document.getElementById("q-28-display")
+const result = document.getElementById("q-28-result")
 
 btn.addEventListener("click", () => {
-
-    const input = inputValue.value.trim().toLowerCase()
+    let input = inputValue.value.trim().toLowerCase()
     try {
         if (!input) {
             throw new Error("Please enter a value.")
         }
-        if (/\d/.test(input) || /[^\w\s]/.test(input)) {
+        if(/[^\w\s]/.test(input) || /\d/.test(input)){
             throw new Error("We only take string values.")
         }
-        if(input.length < 3) {
-            throw new Error("Please enter a string of length 3 or more.")
+        if(input.length < 4){
+            throw new Error("Please enter a string that is 5 characters or more.")
         }
-        if(input.length >= 3){
-            userInput.textContent = `Your input: ${input}`
-            const noOfChars = 3
-            const chars = input.slice(-noOfChars)
-            stringToAdd.textContent = `The last 3 characters of the given string are: ${chars}`
-            result.textContent = `The updated string is: ${chars.toUpperCase() + input + chars.toUpperCase()}`
+        userInput.textContent = `Your input value is: ${input}`
+        if(input.startsWith('java')){
+            userInput.textContent = `Your input value is: ${input}`
+            result.textContent = `It is true. ${input.toUpperCase()} starts with 'JAVA'`
+        }else{
+            result.textContent = `It is false.`
         }
-    }
-    catch (error) {
+    } catch (error) {
         alert(error.message)
     }
 })
