@@ -265,32 +265,70 @@
 
 // 26. Write a JavaScript program to check whether a given positive number is a multiple of 3 or 7. 
 
-const userInput = document.getElementById("q-26-input")
-const btn = document.getElementById("q-26-btn")
-const num = document.getElementById("q-26-display")
-const result = document.getElementById("q-26-result")
+// const userInput = document.getElementById("q-26-input")
+// const btn = document.getElementById("q-26-btn")
+// const num = document.getElementById("q-26-display")
+// const result = document.getElementById("q-26-result")
+
+// btn.addEventListener("click", () => {
+
+//     try {
+//         const input = parseFloat(userInput.value)
+//         if (isNaN(input)) {
+//             throw new Error("Please enter a number.")
+//         }
+//         if (input < 0) {
+//             throw new Error("Only positive integer values allowed.")
+//         }
+//         if (input >= 0) {
+//             if (input % 3 === 0 || input % 7 === 0) {
+//                 num.textContent = `The input value is: ${input}`
+//                 result.textContent = `True. ${input % 3 === 0 ? input+' is a multiple of 3.' : input+' is a multiple of 7.'}`
+//             }else{
+//                 num.textContent = ``
+//                 result.textContent = `${input} is not a multiple of 3 or 7.`
+//             }
+//         }
+//     }
+//     catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 29. Write a JavaScript program to check whether two given integer values are in the range 50..99 (inclusive). Return true if either of them falls within the range.  
+
+const userInputA = document.getElementById("q-29-input-1")
+const userInputB = document.getElementById("q-29-input-2")
+const btn = document.getElementById("q-29-btn")
+const inputADisplay = document.getElementById("q-29-userinput1")
+const inputBDisplay = document.getElementById("q-29-userinput2")
+const result = document.getElementById("q-29-result")
 
 btn.addEventListener("click", () => {
-
+    const inputA = parseFloat(userInputA.value)
+    const inputB = parseFloat(userInputB.value)
     try {
-        const input = parseFloat(userInput.value)
-        if (isNaN(input)) {
-            throw new Error("Please enter a number.")
+        if (isNaN(inputA) || isNaN(inputB)) {
+            throw new Error("Please enter the values to check the condition.")
         }
-        if (input < 0) {
-            throw new Error("Only positive integer values allowed.")
+        // if (!inputA) {
+        //     throw new Error("Please enter the first value to check.")
+        // }
+        // if (!inputB) {
+        //     throw new Error("Please enter the second value to check.")
+        // }
+        inputADisplay.textContent = `First Input value is: ${inputA}`
+        inputBDisplay.textContent = `Second Input value is: ${inputB}`
+        const min = 50
+        const max = 99
+        if ((inputA >= min && inputA <= max) && (inputB >= min && inputB <= max)) {
+            result.textContent = `Yes, both ${inputA} and ${inputB} fall between 50-99.`
+        } else if ((inputA >= min && inputA <= max) || (inputB >= min && inputB <= max)) {
+            result.textContent = `Yes, ${inputA >= min && inputA <= max ? inputA : inputB} falls between 50-99.`
+        } else {
+            result.textContent = `No, neither ${inputA} nor ${inputB} fall between 50-99.`
         }
-        if (input >= 0) {
-            if (input % 3 === 0 || input % 7 === 0) {
-                num.textContent = `The input value is: ${input}`
-                result.textContent = `True. ${input % 3 === 0 ? input+' is a multiple of 3.' : input+' is a multiple of 7.'}`
-            }else{
-                num.textContent = ``
-                result.textContent = `${input} is not a multiple of 3 or 7.`
-            }
-        }
-    }
-    catch (error) {
-        alert(error.message)
+    } catch (e) {
+        alert(e.message)
     }
 })
