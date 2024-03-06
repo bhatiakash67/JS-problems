@@ -297,36 +297,69 @@
 
 // 29. Write a JavaScript program to check whether two given integer values are in the range 50..99 (inclusive). Return true if either of them falls within the range.  
 
-const userInputA = document.getElementById("q-29-input-1")
-const userInputB = document.getElementById("q-29-input-2")
-const btn = document.getElementById("q-29-btn")
-const inputADisplay = document.getElementById("q-29-userinput1")
-const inputBDisplay = document.getElementById("q-29-userinput2")
-const result = document.getElementById("q-29-result")
+// const userInputA = document.getElementById("q-29-input-1")
+// const userInputB = document.getElementById("q-29-input-2")
+// const btn = document.getElementById("q-29-btn")
+// const inputADisplay = document.getElementById("q-29-userinput1")
+// const inputBDisplay = document.getElementById("q-29-userinput2")
+// const result = document.getElementById("q-29-result")
+
+// btn.addEventListener("click", () => {
+//     const inputA = parseFloat(userInputA.value)
+//     const inputB = parseFloat(userInputB.value)
+//     try {
+//         if (isNaN(inputA) || isNaN(inputB)) {
+//             throw new Error("Please enter the values to check the condition.")
+//         }
+//         inputADisplay.textContent = `First Input value is: ${inputA}`
+//         inputBDisplay.textContent = `Second Input value is: ${inputB}`
+//         const min = 50
+//         const max = 99
+//         if ((inputA >= min && inputA <= max) && (inputB >= min && inputB <= max)) {
+//             result.textContent = `Yes, both ${inputA} and ${inputB} fall between 50-99.`
+//         } else if ((inputA >= min && inputA <= max) || (inputB >= min && inputB <= max)) {
+//             result.textContent = `Yes, ${inputA >= min && inputA <= max ? inputA : inputB} falls between 50-99.`
+//         } else {
+//             result.textContent = `No, neither ${inputA} nor ${inputB} fall between 50-99.`
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 30. Write a JavaScript program to check whether three given integer values are in the range 50..99 (inclusive). Return true if one or more of them are in the specified range.
+
+const inputs = document.querySelectorAll(".q-30-input-class")
+const btn = document.getElementById("q-30-btn")
+const displays = document.querySelectorAll(".q-30-display-class")
+const result = document.getElementById("q-30-result")
 
 btn.addEventListener("click", () => {
-    const inputA = parseFloat(userInputA.value)
-    const inputB = parseFloat(userInputB.value)
+
     try {
-        if (isNaN(inputA) || isNaN(inputB)) {
-            throw new Error("Please enter the values to check the condition.")
+        const values = Array.from(inputs).map(input => parseFloat(input.value))
+
+        if (values.some(isNaN)) {
+            throw new Error("Please enter all the values.")
         }
-        // if (!inputA) {
-        //     throw new Error("Please enter the first value to check.")
-        // }
-        // if (!inputB) {
-        //     throw new Error("Please enter the second value to check.")
-        // }
-        inputADisplay.textContent = `First Input value is: ${inputA}`
-        inputBDisplay.textContent = `Second Input value is: ${inputB}`
-        const min = 50
-        const max = 99
-        if ((inputA >= min && inputA <= max) && (inputB >= min && inputB <= max)) {
-            result.textContent = `Yes, both ${inputA} and ${inputB} fall between 50-99.`
-        } else if ((inputA >= min && inputA <= max) || (inputB >= min && inputB <= max)) {
-            result.textContent = `Yes, ${inputA >= min && inputA <= max ? inputA : inputB} falls between 50-99.`
+        values.forEach((value, index) => {
+            const display = displays[index]
+            if (display) {
+                display.textContent = `Input ${index + 1} is: ${value}`
+            } else {
+                throw new Error(`Display element for index ${index + 1} is undefined.`)
+            }
+        })
+        const passes = values.map(value => value >= 50 && value <= 99)
+
+        if (passes.some(Boolean)) {
+            const index = passes.findIndex(Boolean)
+            result.textContent = `True, ${values[index]} lies between 50-99.`
         } else {
-            result.textContent = `No, neither ${inputA} nor ${inputB} fall between 50-99.`
+            result.textContent = `False, none of these values fall between 50-99.`
+        }
+        if (passes.every(Boolean)) {
+            result.textContent = `True, all the values ${values.join(", ")} lie between 50-99.`
         }
     } catch (e) {
         alert(e.message)
