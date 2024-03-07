@@ -29,16 +29,34 @@ My approach to solving JavaScript problems involves:
 Explore the JavaScript concepts I've strengthened through hands-on practice. Each exercise focuses on different aspects of JavaScript, reinforcing my understanding of key concepts.
 
 ### Concept 1: String Operations.
+- ### split() 
+- ### substring()   
+- ### replace() 
+- ### indexOf()
 
 ### Concept 2: Math Operations.
 
 ### Concept 3: Date & Time Operations.
 
 ### Concept 4: DOM Manipulation.
-
+querySelectorAll
+getElementById
+addEventListener
 ### Concept 5: Array Manipulation.
-
+join()
+Array.from()
+Array.map() 
+forEach()
 ### Concept 6: RegExp.
+
+### Concept 7: Conditions.
+if if else 
+else if 
+
+### Concept 8: Operators.
+ternary 
+&& 
+|| 
 
 ## Acknowledgments
 

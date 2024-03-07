@@ -264,10 +264,41 @@
 
 // 28. Write a JavaScript program to check whether a string starts with 'Java' if it does not otherwise.  
 
-const inputValue = document.getElementById("q-28-input")
-const btn = document.getElementById("q-28-btn")
-const userInput = document.getElementById("q-28-display")
-const result = document.getElementById("q-28-result")
+// const inputValue = document.getElementById("q-28-input")
+// const btn = document.getElementById("q-28-btn")
+// const userInput = document.getElementById("q-28-display")
+// const result = document.getElementById("q-28-result")
+
+// btn.addEventListener("click", () => {
+//     let input = inputValue.value.trim().toLowerCase()
+//     try {
+//         if (!input) {
+//             throw new Error("Please enter a value.")
+//         }
+//         if(/[^\w\s]/.test(input) || /\d/.test(input)){
+//             throw new Error("We only take string values.")
+//         }
+//         if(input.length < 4){
+//             throw new Error("Please enter a string that is 5 characters or more.")
+//         }
+//         userInput.textContent = `Your input value is: ${input}`
+//         if(input.startsWith('java')){
+//             userInput.textContent = `Your input value is: ${input}`
+//             result.textContent = `It is true. ${input.toUpperCase()} starts with 'JAVA'`
+//         }else{
+//             result.textContent = `It is false.`
+//         }
+//     } catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 31. Write a JavaScript program to check whether a string "Script" appears at the 5th (index 4) position in a given string. If "Script" appears in the string, return the string without "Script" otherwise return the original one.  
+
+const inputValue = document.getElementById("q-31-input")
+const btn = document.getElementById("q-31-btn")
+const userInput = document.getElementById("q-31-display")
+const result = document.getElementById("q-31-result")
 
 btn.addEventListener("click", () => {
     let input = inputValue.value.trim().toLowerCase()
@@ -275,20 +306,18 @@ btn.addEventListener("click", () => {
         if (!input) {
             throw new Error("Please enter a value.")
         }
-        if(/[^\w\s]/.test(input) || /\d/.test(input)){
+        if (/\d/.test(input) || /[^\w\s]/.test(input)) {
             throw new Error("We only take string values.")
         }
-        if(input.length < 4){
-            throw new Error("Please enter a string that is 5 characters or more.")
+        userInput.textContent = `Input value is: ${input}.`
+
+        let placeToLookAtFrom = input.indexOf("script", 4)
+        if (placeToLookAtFrom === 4) {
+            result.textContent = `True. New updated string is: ${input.replace("script", '').toUpperCase()}.`
+        } else {
+            result.textContent = `False, ${input.toUpperCase()}.`
         }
-        userInput.textContent = `Your input value is: ${input}`
-        if(input.startsWith('java')){
-            userInput.textContent = `Your input value is: ${input}`
-            result.textContent = `It is true. ${input.toUpperCase()} starts with 'JAVA'`
-        }else{
-            result.textContent = `It is false.`
-        }
-    } catch (error) {
-        alert(error.message)
+    } catch (e) {
+        alert(e.message)
     }
 })
