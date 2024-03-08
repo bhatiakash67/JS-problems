@@ -39,24 +39,30 @@ Explore the JavaScript concepts I've strengthened through hands-on practice. Eac
 ### Concept 3: Date & Time Operations.
 
 ### Concept 4: DOM Manipulation.
-querySelectorAll
-getElementById
-addEventListener
+querySelectorAll <br>
+getElementById <br>
+addEventListener <br>
+nodelist events
 ### Concept 5: Array Manipulation.
-join()
-Array.from()
-Array.map() 
+join() <br>
+Array.from() <br>
+Array.map() <br>
 forEach()
+
 ### Concept 6: RegExp.
+/\d/.test()
 
 ### Concept 7: Conditions.
-if if else 
+if <br>
+if else <br>
 else if 
 
 ### Concept 8: Operators.
-ternary 
-&& 
+ternary <br>
+&& <br>
 || 
+
+for loop
 
 ## Acknowledgments
 

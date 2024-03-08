@@ -329,38 +329,72 @@
 
 // 30. Write a JavaScript program to check whether three given integer values are in the range 50..99 (inclusive). Return true if one or more of them are in the specified range.
 
-const inputs = document.querySelectorAll(".q-30-input-class")
-const btn = document.getElementById("q-30-btn")
-const displays = document.querySelectorAll(".q-30-display-class")
-const result = document.getElementById("q-30-result")
+// const inputs = document.querySelectorAll(".q-30-input-class")
+// const btn = document.getElementById("q-30-btn")
+// const displays = document.querySelectorAll(".q-30-display-class")
+// const result = document.getElementById("q-30-result")
+
+// btn.addEventListener("click", () => {
+
+//     try {
+//         const values = Array.from(inputs).map(input => parseFloat(input.value))
+
+//         if (values.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         values.forEach((value, index) => {
+//             const display = displays[index]
+//             if (display) {
+//                 display.textContent = `Input ${index + 1} is: ${value}`
+//             } else {
+//                 throw new Error(`Display element for index ${index + 1} is undefined.`)
+//             }
+//         })
+//         const passes = values.map(value => value >= 50 && value <= 99)
+
+//         if (passes.some(Boolean)) {
+//             const index = passes.findIndex(Boolean)
+//             result.textContent = `True, ${values[index]} lies between 50-99.`
+//         } else {
+//             result.textContent = `False, none of these values fall between 50-99.`
+//         }
+//         if (passes.every(Boolean)) {
+//             result.textContent = `True, all the values ${values.join(", ")} lie between 50-99.`
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 32. Write a JavaScript program to find the largest of three given integers. 
+
+const inputs = document.querySelectorAll(".q-32-input")
+const btn = document.getElementById("q-32-btn")
+const displays = document.querySelectorAll(".q-32-display")
+const result = document.getElementById("q-32-result")
 
 btn.addEventListener("click", () => {
-
     try {
-        const values = Array.from(inputs).map(input => parseFloat(input.value))
+        const userInputs = Array.from(inputs).map((input) => parseFloat(input.value))
 
-        if (values.some(isNaN)) {
+        if (userInputs.some(isNaN)) {
             throw new Error("Please enter all the values.")
         }
-        values.forEach((value, index) => {
+        userInputs.forEach((userInput, index) => {
             const display = displays[index]
             if (display) {
-                display.textContent = `Input ${index + 1} is: ${value}`
+                display.textContent = `Input ${index + 1} is: ${userInput}`
             } else {
                 throw new Error(`Display element for index ${index + 1} is undefined.`)
             }
         })
-        const passes = values.map(value => value >= 50 && value <= 99)
-
-        if (passes.some(Boolean)) {
-            const index = passes.findIndex(Boolean)
-            result.textContent = `True, ${values[index]} lies between 50-99.`
-        } else {
-            result.textContent = `False, none of these values fall between 50-99.`
+        let largestNumber = userInputs[0]
+        for (let i = 0; i < userInputs.length; i++) {
+            if (userInputs[i] > largestNumber) {
+               largestNumber = numbers[i]
+            }
         }
-        if (passes.every(Boolean)) {
-            result.textContent = `True, all the values ${values.join(", ")} lie between 50-99.`
-        }
+        result.textContent = `The largest number is: ${largestNumber}`
     } catch (e) {
         alert(e.message)
     }
