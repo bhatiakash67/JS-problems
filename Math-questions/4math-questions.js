@@ -368,10 +368,50 @@
 
 // 32. Write a JavaScript program to find the largest of three given integers. 
 
-const inputs = document.querySelectorAll(".q-32-input")
-const btn = document.getElementById("q-32-btn")
-const displays = document.querySelectorAll(".q-32-display")
-const result = document.getElementById("q-32-result")
+// const inputs = document.querySelectorAll(".q-32-input")
+// const btn = document.getElementById("q-32-btn")
+// const displays = document.querySelectorAll(".q-32-display")
+// const result = document.getElementById("q-32-result")
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const userInputs = Array.from(inputs).map((input) => parseFloat(input.value))
+
+//         if (userInputs.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         userInputs.forEach((userInput, index) => {
+//             const display = displays[index]
+//             if (display) {
+//                 display.textContent = `Input ${index + 1} is: ${userInput}`
+//             } else {
+//                 throw new Error(`Display element for index ${index + 1} is undefined.`)
+//             }
+//         })
+//         let largestNumber = userInputs[0]
+//         for (let i = 0; i < userInputs.length; i++) {
+//             if (userInputs[i] > largestNumber) {
+//                largestNumber = numbers[i]
+//             }
+//         }
+//         result.textContent = `The largest number is: ${largestNumber}`
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 33. Write a JavaScript program to find the closest value to 100 from two numerical values.  
+
+const inputs = document.querySelectorAll(".q-33-input")
+const displays = document.querySelectorAll(".q-33-display")
+const btn = document.getElementById("q-33-btn")
+const result = document.getElementById("q-33-result")
+
+function findClosestTo100(numbers) {
+    return numbers.reduce((closest, current) => (
+        Math.abs(current - 100) < Math.abs(closest - 100) ? current : closest
+    ))
+}
 
 btn.addEventListener("click", () => {
     try {
@@ -388,13 +428,12 @@ btn.addEventListener("click", () => {
                 throw new Error(`Display element for index ${index + 1} is undefined.`)
             }
         })
-        let largestNumber = userInputs[0]
-        for (let i = 0; i < userInputs.length; i++) {
-            if (userInputs[i] > largestNumber) {
-               largestNumber = numbers[i]
-            }
+        if (userInputs.length === 2) {
+            const closestTo100 = findClosestTo100(userInputs)
+            result.textContent = `The value closest to 100 is: ${closestTo100}`
+        } else {
+            throw new Error("Please enter exactly two numerical values.")
         }
-        result.textContent = `The largest number is: ${largestNumber}`
     } catch (e) {
         alert(e.message)
     }

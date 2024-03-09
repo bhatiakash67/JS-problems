@@ -35,6 +35,7 @@ Explore the JavaScript concepts I've strengthened through hands-on practice. Eac
 - ### indexOf()
 
 ### Concept 2: Math Operations.
+Math.abs()
 
 ### Concept 3: Date & Time Operations.
 
@@ -47,7 +48,8 @@ nodelist events
 join() <br>
 Array.from() <br>
 Array.map() <br>
-forEach()
+forEach() <br>
+reduce()
 
 ### Concept 6: RegExp.
 /\d/.test()
