@@ -402,37 +402,73 @@
 
 // 33. Write a JavaScript program to find the closest value to 100 from two numerical values.  
 
-const inputs = document.querySelectorAll(".q-33-input")
-const displays = document.querySelectorAll(".q-33-display")
-const btn = document.getElementById("q-33-btn")
-const result = document.getElementById("q-33-result")
+// const inputs = document.querySelectorAll(".q-33-input")
+// const displays = document.querySelectorAll(".q-33-display")
+// const btn = document.getElementById("q-33-btn")
+// const result = document.getElementById("q-33-result")
 
-function findClosestTo100(numbers) {
-    return numbers.reduce((closest, current) => (
-        Math.abs(current - 100) < Math.abs(closest - 100) ? current : closest
-    ))
-}
+// function findClosestTo100(numbers) {
+//     return numbers.reduce((closest, current) => (
+//         Math.abs(current - 100) < Math.abs(closest - 100) ? current : closest
+//     ))
+// }
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const userInputs = Array.from(inputs).map((input) => parseFloat(input.value))
+
+//         if (userInputs.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         userInputs.forEach((userInput, index) => {
+//             const display = displays[index]
+//             if (display) {
+//                 display.textContent = `Input ${index + 1} is: ${userInput}`
+//             } else {
+//                 throw new Error(`Display element for index ${index + 1} is undefined.`)
+//             }
+//         })
+//         if (userInputs.length === 2) {
+//             const closestTo100 = findClosestTo100(userInputs)
+//             result.textContent = `The value closest to 100 is: ${closestTo100}`
+//         } else {
+//             throw new Error("Please enter exactly two numerical values.")
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 34.  Write a JavaScript program to check whether two numbers are in the range 40..60 or 70..100 inclusive. 
+
+const inputs = document.querySelectorAll(".q-34-input")
+const displays = document.querySelectorAll(".q-34-display")
+const btn = document.getElementById("q-34-btn")
+const result = document.getElementById("q-34-result")
 
 btn.addEventListener("click", () => {
     try {
-        const userInputs = Array.from(inputs).map((input) => parseFloat(input.value))
-
-        if (userInputs.some(isNaN)) {
+        const numbers = Array.from(inputs).map((input) => parseFloat(input.value))
+        if (numbers.some(isNaN)) {
             throw new Error("Please enter all the values.")
         }
-        userInputs.forEach((userInput, index) => {
+        numbers.forEach((number, index) => {
             const display = displays[index]
             if (display) {
-                display.textContent = `Input ${index + 1} is: ${userInput}`
+                display.textContent = `Input ${index + 1} is: ${number}`
             } else {
                 throw new Error(`Display element for index ${index + 1} is undefined.`)
             }
         })
-        if (userInputs.length === 2) {
-            const closestTo100 = findClosestTo100(userInputs)
-            result.textContent = `The value closest to 100 is: ${closestTo100}`
-        } else {
-            throw new Error("Please enter exactly two numerical values.")
+        const condition1 = numbers.some(number => number >= 40 && number <= 60)
+        const condition2 = numbers.some(number => number >= 70 && number <= 100)
+        if (condition1) {
+            result.textContent = `It is true, at least one number lies between 40-60.`
+        } else if (condition2) {
+            result.textContent = `It is true, at least one number lies between 70-100.`
+        }
+        else {
+            result.textContent = `No, none of the numbers lie between either of the ranges.`
         }
     } catch (e) {
         alert(e.message)
