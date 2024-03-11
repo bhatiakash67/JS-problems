@@ -441,10 +441,46 @@
 
 // 34.  Write a JavaScript program to check whether two numbers are in the range 40..60 or 70..100 inclusive. 
 
-const inputs = document.querySelectorAll(".q-34-input")
-const displays = document.querySelectorAll(".q-34-display")
-const btn = document.getElementById("q-34-btn")
-const result = document.getElementById("q-34-result")
+// const inputs = document.querySelectorAll(".q-34-input")
+// const displays = document.querySelectorAll(".q-34-display")
+// const btn = document.getElementById("q-34-btn")
+// const result = document.getElementById("q-34-result")
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const numbers = Array.from(inputs).map((input) => parseFloat(input.value))
+//         if (numbers.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         numbers.forEach((number, index) => {
+//             const display = displays[index]
+//             if (display) {
+//                 display.textContent = `Input ${index + 1} is: ${number}`
+//             } else {
+//                 throw new Error(`Display element for index ${index + 1} is undefined.`)
+//             }
+//         })
+//         const condition1 = numbers.some(number => number >= 40 && number <= 60)
+//         const condition2 = numbers.some(number => number >= 70 && number <= 100)
+//         if (condition1) {
+//             result.textContent = `It is true, at least one number lies between 40-60.`
+//         } else if (condition2) {
+//             result.textContent = `It is true, at least one number lies between 70-100.`
+//         }
+//         else {
+//             result.textContent = `No, none of the numbers lie between either of the ranges.`
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 35. Write a JavaScript program to find the largest number from the two given positive integers. The two numbers are in the range 40..60 inclusive.  
+
+const inputs = document.querySelectorAll(".q-35-input")
+const displays = document.querySelectorAll(".q-35-display")
+const btn = document.getElementById("q-35-btn")
+const result = document.getElementById("q-35-result")
 
 btn.addEventListener("click", () => {
     try {
@@ -460,15 +496,12 @@ btn.addEventListener("click", () => {
                 throw new Error(`Display element for index ${index + 1} is undefined.`)
             }
         })
-        const condition1 = numbers.some(number => number >= 40 && number <= 60)
-        const condition2 = numbers.some(number => number >= 70 && number <= 100)
-        if (condition1) {
-            result.textContent = `It is true, at least one number lies between 40-60.`
-        } else if (condition2) {
-            result.textContent = `It is true, at least one number lies between 70-100.`
-        }
-        else {
-            result.textContent = `No, none of the numbers lie between either of the ranges.`
+        const isValidRange = numbers.every((number) => number >= 40 && number <= 60)
+        if (isValidRange) {
+            const largestNumber = Math.max(...numbers)
+            result.textContent = `The largest number is: ${largestNumber}.`
+        } else {
+            result.textContent = 'Please enter numbers in the range of 40-60 inclusive.'
         }
     } catch (e) {
         alert(e.message)

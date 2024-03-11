@@ -35,7 +35,8 @@ Explore the JavaScript concepts I've strengthened through hands-on practice. Eac
 - ### indexOf()
 
 ### Concept 2: Math Operations.
-Math.abs()
+Math.abs() <br>
+Math.max()
 
 ### Concept 3: Date & Time Operations.
 
@@ -43,13 +44,15 @@ Math.abs()
 querySelectorAll <br>
 getElementById <br>
 addEventListener <br>
-nodelist events
+nodelist events.
+
 ### Concept 5: Array Manipulation.
 join() <br>
 Array.from() <br>
 Array.map() <br>
 forEach() <br>
-reduce()
+reduce() <br>
+every().
 
 ### Concept 6: RegExp.
 /\d/.test()
@@ -60,9 +63,10 @@ if else <br>
 else if 
 
 ### Concept 8: Operators.
-ternary <br>
-&& <br>
-|| 
+Ternary operator.<br>
+&& operator.<br>
+|| operator.
+spread operator.
 
 for loop
 
