@@ -484,24 +484,24 @@ const result = document.getElementById("q-35-result")
 
 btn.addEventListener("click", () => {
     try {
-        const numbers = Array.from(inputs).map((input) => parseFloat(input.value))
-        if (numbers.some(isNaN)) {
+        const inputValues = Array.from(inputs).map((input) => parseFloat(input.value))
+        if (inputValues.some(isNaN)) {
             throw new Error("Please enter all the values.")
         }
-        numbers.forEach((number, index) => {
+        inputValues.forEach((inputValue, index) => {
             const display = displays[index]
             if (display) {
-                display.textContent = `Input ${index + 1} is: ${number}`
+                display.textContent = `Input ${index + 1} is: ${inputValue}`
             } else {
                 throw new Error(`Display element for index ${index + 1} is undefined.`)
             }
         })
-        const isValidRange = numbers.every((number) => number >= 40 && number <= 60)
-        if (isValidRange) {
-            const largestNumber = Math.max(...numbers)
-            result.textContent = `The largest number is: ${largestNumber}.`
+        const validRange = inputValues.every((inputValue) => inputValue >= 40 && inputValue <= 60)
+        if (validRange) {
+            const largestNumber = Math.max(...inputValues)
+            result.textContent = `The largest number is: ${largestNumber}`
         } else {
-            result.textContent = 'Please enter numbers in the range of 40-60 inclusive.'
+            result.textContent = `Please enter numbers in the range of 40-60 inclusive.`
         }
     } catch (e) {
         alert(e.message)
