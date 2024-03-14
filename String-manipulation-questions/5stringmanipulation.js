@@ -293,29 +293,85 @@
 //     }
 // })
 
-// 31. Write a JavaScript program to check whether a string "Script" appears at the 5th (index 4) position in a given string. If "Script" appears in the string, return the string without "Script" otherwise return the original one.  
+// 31. Write a JavaScript program to check whether a string "Script" appears at the 5th(index 4) position in a given string. If "Script" appears in the string, return the string without "Script" otherwise return the original one.  
 
-const inputValue = document.getElementById("q-31-input")
-const btn = document.getElementById("q-31-btn")
-const userInput = document.getElementById("q-31-display")
-const result = document.getElementById("q-31-result")
+// const inputValue = document.getElementById("q-31-input")
+// const btn = document.getElementById("q-31-btn")
+// const userInput = document.getElementById("q-31-display")
+// const result = document.getElementById("q-31-result")
 
-btn.addEventListener("click", () => {
-    let input = inputValue.value.trim().toLowerCase()
+// btn.addEventListener("click", () => {
+//     let input = inputValue.value.trim().toLowerCase()
+//     try {
+//         if (!input) {
+//             throw new Error("Please enter a value.")
+//         }
+//         if (/\d/.test(input) || /[^\w\s]/.test(input)) {
+//             throw new Error("We only take string values.")
+//         }
+//         userInput.textContent = `Input value is: ${input}.`
+
+//         let placeToLookAtFrom = input.indexOf("script", 4)
+//         if (placeToLookAtFrom === 4) {
+//             result.textContent = `True. New updated string is: ${input.replace("script", '').toUpperCase()}.`
+//         } else {
+//             result.textContent = `False, ${input.toUpperCase()}.`
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 36. Write a program to check whether a specified character exists between the 2nd and 4th positions in a given string. 
+
+const inputOne = document.getElementById("q-36-input1")
+const btnOne = document.getElementById("q-36-btn1")
+const displayOne = document.getElementById("q-36-display1")
+const inputTwo = document.getElementById("q-36-input2")
+const btnTwo = document.getElementById("q-36-btn2")
+const displayTwo = document.getElementById("q-36-display2")
+const result = document.getElementById("q-36-result")
+
+btnOne.addEventListener("click", () => {
     try {
+        const input = inputOne.value.trim().toLowerCase()
         if (!input) {
-            throw new Error("Please enter a value.")
+            throw new Error("Please enter a value to continue.")
         }
         if (/\d/.test(input) || /[^\w\s]/.test(input)) {
-            throw new Error("We only take string values.")
+            throw new Error("We take only string values")
         }
-        userInput.textContent = `Input value is: ${input}.`
-
-        let placeToLookAtFrom = input.indexOf("script", 4)
-        if (placeToLookAtFrom === 4) {
-            result.textContent = `True. New updated string is: ${input.replace("script", '').toUpperCase()}.`
+        if (input.length < 4) {
+            throw new Error("Please enter a bigger word to check.")
+        }
+        displayOne.textContent = `The entered string is: ${input}`
+        alert("Now enter the character you want to check at 2nd-4th position in the entered string below.")
+    } catch (e) {
+        alert(e.message)
+    }
+})
+btnTwo.addEventListener("click", () => {
+    try {
+        const userInput = inputOne.value.trim().toLowerCase()
+        const charToCheck = inputTwo.value.trim().toLowerCase()
+        if (!userInput) {
+            throw new Error("Please enter a string first to check the condition.")
+        }
+        if (!charToCheck) {
+            throw new Error("Please enter a character to continue.")
+        }
+        if (/\d/.test(charToCheck) || /[^\w\s]/.test(charToCheck)) {
+            throw new Error("We  take only string values.")
+        }
+        if (charToCheck.length !== 1) {
+            throw new Error("Please enter a single character to check.")
+        }
+        let charAtIndex2To4 = userInput.slice(1, 3)
+        let charCondition = charAtIndex2To4.includes(charToCheck)
+        if (charCondition) {
+            result.textContent = `The character '${charToCheck.toUpperCase()}' exists between the 2nd and 4th positions in the entered string.`
         } else {
-            result.textContent = `False, ${input.toUpperCase()}.`
+            result.textContent = `The character '${charToCheck}' does not exist between the 2nd and 4th positions in the entered string.`
         }
     } catch (e) {
         alert(e.message)
