@@ -477,33 +477,75 @@
 
 // 35. Write a JavaScript program to find the largest number from the two given positive integers. The two numbers are in the range 40..60 inclusive.  
 
-const inputs = document.querySelectorAll(".q-35-input")
-const displays = document.querySelectorAll(".q-35-display")
-const btn = document.getElementById("q-35-btn")
-const result = document.getElementById("q-35-result")
+// const inputs = document.querySelectorAll(".q-35-input")
+// const displays = document.querySelectorAll(".q-35-display")
+// const btn = document.getElementById("q-35-btn")
+// const result = document.getElementById("q-35-result")
 
-btn.addEventListener("click", () => {
-    try {
-        const inputValues = Array.from(inputs).map((input) => parseFloat(input.value))
-        if (inputValues.some(isNaN)) {
-            throw new Error("Please enter all the values.")
-        }
-        inputValues.forEach((inputValue, index) => {
-            const display = displays[index]
-            if (display) {
-                display.textContent = `Input ${index + 1} is: ${inputValue}`
-            } else {
-                throw new Error(`Display element for index ${index + 1} is undefined.`)
+// btn.addEventListener("click", () => {
+//     try {
+//         const inputValues = Array.from(inputs).map((input) => parseFloat(input.value))
+//         if (inputValues.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         inputValues.forEach((inputValue, index) => {
+//             const display = displays[index]
+//             if (display) {
+//                 display.textContent = `Input ${index + 1} is: ${inputValue}`
+//             } else {
+//                 throw new Error(`Display element for index ${index + 1} is undefined.`)
+//             }
+//         })
+//         const validRange = inputValues.every((inputValue) => inputValue >= 40 && inputValue <= 60)
+//         if (validRange) {
+//             const largestNumber = Math.max(...inputValues)
+//             result.textContent = `The largest number is: ${largestNumber}`
+//         } else {
+//             result.textContent = `Please enter numbers in the range of 40-60 inclusive.`
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 37. Write a JavaScript program that checks whether the last digit of three positive integers is the same. 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll(".q-37-input")
+    const btn = document.getElementById("q-37-btn")
+    const displayedNumbers = document.querySelectorAll(".q-37-display")
+    const result = document.getElementById("q-37-result")
+
+    function handleButtonClick() {
+        try {
+            const numbersToCheck = Array.from(inputs).map((number) => parseFloat(number.value))
+            if (numbersToCheck.some(isNaN)) {
+                throw new Error("Please enter all the values to check.")
             }
-        })
-        const validRange = inputValues.every((inputValue) => inputValue >= 40 && inputValue <= 60)
-        if (validRange) {
-            const largestNumber = Math.max(...inputValues)
-            result.textContent = `The largest number is: ${largestNumber}`
-        } else {
-            result.textContent = `Please enter numbers in the range of 40-60 inclusive.`
+            const positiveNumbers = numbersToCheck.filter(number => number > 0)
+            if (positiveNumbers.length !== numbersToCheck.length) {
+                throw new Error("Please enter positive values only.")
+            }
+            displayedNumbers.forEach((displayedNumber, index) => {
+                const value = inputs[index].value
+                displayedNumber.textContent = `The ${index + 1} input is: ${value}`
+            })
+            const lastDigits = positiveNumbers.map((number) => number % 10)
+            const firstNumber = lastDigits[0]
+            const areLastDigitsSame = lastDigits.every(digit => digit === firstNumber)
+            if (areLastDigitsSame) {
+                result.textContent = `Yes, the last digit of the inputs are the same.`
+            } else {
+                result.textContent = `No, the last digit of the inputs are not the same.`
+            }
+        } catch (e) {
+            alert(e.message)
         }
-    } catch (e) {
-        alert(e.message)
     }
+    btn.addEventListener("click", handleButtonClick)
+    document.addEventListener("keydown", (e) => {
+        if (e.key === 'Enter') {
+            handleButtonClick()
+        }
+    })
 })

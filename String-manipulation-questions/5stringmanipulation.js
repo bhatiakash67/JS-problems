@@ -17,7 +17,7 @@
 // // String animation on webpage using slice and setInterval method
 
 // const animation = document.getElementById("rotatingString")
-// const userInput = document.getElementById("string")
+// const input = document.getElementById("string")
 // const btn = document.getElementById("btn")
 
 
@@ -26,7 +26,7 @@
 // }
 
 // btn.addEventListener("click", () => {
-//     const userValue = userInput.value.trim()
+//     const userValue = input.value.trim()
 //     if(userValue){
 //         animation.textContent = userValue
 //     }
@@ -64,30 +64,30 @@
 
 // btn.addEventListener("click", () => {
 
-//     const userInput = strInput.value.toLowerCase();  
+//     const input = strInput.value.toLowerCase();  
 
-//    const reversedString = userInput.split('').reverse().join('')
+//    const reversedString = input.split('').reverse().join('')
 
-//    display.textContent = `The string is: ${userInput}`;
+//    display.textContent = `The string is: ${input}`;
 
-//     if(userInput === reversedString) {
-//         result.textContent = `${userInput} is a palindrome.`
+//     if(input === reversedString) {
+//         result.textContent = `${input} is a palindrome.`
 //     }
 //     else{
-//         result.textContent = `${userInput} is not a palindrome.`
+//         result.textContent = `${input} is not a palindrome.`
 //     }
 // })
 
 // 22. Write a JavaScript program to create another string by adding "Py" in front of a given string. If the given string begins with "Py" return the original string. 
 
-// const userInput = document.getElementById("q-22-input")
+// const input = document.getElementById("q-22-input")
 // const btn = document.getElementById("q-22-btn")
 // const inputValue = document.getElementById("q-22-user-input")
 // const result = document.getElementById("q-22-result")
 
 // btn.addEventListener("click", () => {
 //     try {
-//         const char = (userInput.value).trim().toLowerCase()
+//         const char = (input.value).trim().toLowerCase()
 
 //         if (typeof char !== 'string' || !isNaN(parseFloat(char))) {
 //             throw new Error("We only take string values.")
@@ -109,10 +109,10 @@
 
 // 23. Write a JavaScript program to remove a character at the specified position in a given string and return the modified string.
 
-// const inputString = document.getElementById("q-23-userinput-string")
+// const inputString = document.getElementById("q-23-input-string")
 // const stringBtn = document.getElementById("q-23-string-btn")
 // const stringValue = document.getElementById("q-23-string-display")
-// const inputPosition = document.getElementById("q-23-userinput-position")
+// const inputPosition = document.getElementById("q-23-input-position")
 // const positionBtn = document.getElementById("q-23-position-btn")
 // const posiitonValue = document.getElementById("q-23-position-display")
 // const charAtPosition = document.getElementById("q-23-char-display")
@@ -160,7 +160,7 @@
 
 // const inputValue = document.getElementById("q-24-input")
 // const btn = document.getElementById("q-24-btn")
-// const userInput = document.getElementById("q-24-userinput")
+// const input = document.getElementById("q-24-input")
 // const firstChar = document.getElementById("q-24-char1")
 // const lastChar = document.getElementById("q-24-char2")
 // const result = document.getElementById("q-24-result")
@@ -178,7 +178,7 @@
 //             throw new Error("We only take non-null string values.")
 //         }
 
-//         userInput.textContent = `The entered string is: ${input}`
+//         input.textContent = `The entered string is: ${input}`
 
 //         if (input.length <= 1) {
 //             result.textContent = `The updated string is: ${input}`
@@ -200,13 +200,13 @@
 
 // 25. Write a JavaScript program to create another string from a given string with the first character of the given string added to the front and back.  
 
-// const userInput = document.getElementById("q-25-input")
+// const input = document.getElementById("q-25-input")
 // const btn = document.getElementById("q-25-btn")
 // const char = document.getElementById("q-25-firstchr")
 // const result = document.getElementById("q-25-result")
 
 // btn.addEventListener("click", () => {
-//     input = userInput.value.trim().toLowerCase();
+//     input = input.value.trim().toLowerCase();
 //     try {
 //         if (!input) {
 //             throw new Error("Please enter a value.")
@@ -232,7 +232,7 @@
 
 // const inputValue = document.getElementById("q-27-input")
 // const btn = document.getElementById("q-27-btn")
-// const userInput = document.getElementById("q-27-display")
+// const input = document.getElementById("q-27-display")
 // const stringToAdd = document.getElementById("q-27-stringpart")
 // const result = document.getElementById("q-27-result")
 
@@ -250,7 +250,7 @@
 //             throw new Error("Please enter a string of length 3 or more.")
 //         }
 //         if(input.length >= 3){
-//             userInput.textContent = `Your input: ${input}`
+//             input.textContent = `Your input: ${input}`
 //             const noOfChars = 3
 //             const chars = input.slice(-noOfChars)
 //             stringToAdd.textContent = `The last 3 characters of the given string are: ${chars}`
@@ -266,7 +266,7 @@
 
 // const inputValue = document.getElementById("q-28-input")
 // const btn = document.getElementById("q-28-btn")
-// const userInput = document.getElementById("q-28-display")
+// const input = document.getElementById("q-28-display")
 // const result = document.getElementById("q-28-result")
 
 // btn.addEventListener("click", () => {
@@ -281,9 +281,9 @@
 //         if(input.length < 4){
 //             throw new Error("Please enter a string that is 5 characters or more.")
 //         }
-//         userInput.textContent = `Your input value is: ${input}`
+//         input.textContent = `Your input value is: ${input}`
 //         if(input.startsWith('java')){
-//             userInput.textContent = `Your input value is: ${input}`
+//             input.textContent = `Your input value is: ${input}`
 //             result.textContent = `It is true. ${input.toUpperCase()} starts with 'JAVA'`
 //         }else{
 //             result.textContent = `It is false.`
@@ -297,7 +297,7 @@
 
 // const inputValue = document.getElementById("q-31-input")
 // const btn = document.getElementById("q-31-btn")
-// const userInput = document.getElementById("q-31-display")
+// const input = document.getElementById("q-31-display")
 // const result = document.getElementById("q-31-result")
 
 // btn.addEventListener("click", () => {
@@ -309,7 +309,7 @@
 //         if (/\d/.test(input) || /[^\w\s]/.test(input)) {
 //             throw new Error("We only take string values.")
 //         }
-//         userInput.textContent = `Input value is: ${input}.`
+//         input.textContent = `Input value is: ${input}.`
 
 //         let placeToLookAtFrom = input.indexOf("script", 4)
 //         if (placeToLookAtFrom === 4) {
@@ -352,9 +352,9 @@ btnOne.addEventListener("click", () => {
 })
 btnTwo.addEventListener("click", () => {
     try {
-        const userInput = inputOne.value.trim().toLowerCase()
+        const input = inputOne.value.trim().toLowerCase()
         const charToCheck = inputTwo.value.trim().toLowerCase()
-        if (!userInput) {
+        if (!input) {
             throw new Error("Please enter a string first to check the condition.")
         }
         if (!charToCheck) {
@@ -366,7 +366,7 @@ btnTwo.addEventListener("click", () => {
         if (charToCheck.length !== 1) {
             throw new Error("Please enter a single character to check.")
         }
-        let charAtIndex2To4 = userInput.slice(1, 3)
+        let charAtIndex2To4 = input.slice(1, 3)
         let charCondition = charAtIndex2To4.includes(charToCheck)
         if (charCondition) {
             result.textContent = `The character '${charToCheck.toUpperCase()}' exists between the 2nd and 4th positions in the entered string.`

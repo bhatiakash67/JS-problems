@@ -33,6 +33,8 @@ Explore the JavaScript concepts I've strengthened through hands-on practice. Eac
 - substring()
 - replace()
 - indexOf()
+- slice()
+- includes()
 
 ### Concept 2: Math Operations.
 - Math.abs() 
@@ -54,6 +56,7 @@ Explore the JavaScript concepts I've strengthened through hands-on practice. Eac
 - reduce() 
 - every(). 
 - concat()
+- filter()
 
 ### Concept 6: RegExp.
 - /\d/.test()
