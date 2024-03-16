@@ -324,55 +324,83 @@
 
 // 36. Write a program to check whether a specified character exists between the 2nd and 4th positions in a given string. 
 
-const inputOne = document.getElementById("q-36-input1")
-const btnOne = document.getElementById("q-36-btn1")
-const displayOne = document.getElementById("q-36-display1")
-const inputTwo = document.getElementById("q-36-input2")
-const btnTwo = document.getElementById("q-36-btn2")
-const displayTwo = document.getElementById("q-36-display2")
-const result = document.getElementById("q-36-result")
+// const inputOne = document.getElementById("q-36-input1")
+// const btnOne = document.getElementById("q-36-btn1")
+// const displayOne = document.getElementById("q-36-display1")
+// const inputTwo = document.getElementById("q-36-input2")
+// const btnTwo = document.getElementById("q-36-btn2")
+// const displayTwo = document.getElementById("q-36-display2")
+// const result = document.getElementById("q-36-result")
 
-btnOne.addEventListener("click", () => {
+// btnOne.addEventListener("click", () => {
+//     try {
+//         const input = inputOne.value.trim().toLowerCase()
+//         if (!input) {
+//             throw new Error("Please enter a value to continue.")
+//         }
+//         if (/\d/.test(input) || /[^\w\s]/.test(input)) {
+//             throw new Error("We take only string values")
+//         }
+//         if (input.length < 4) {
+//             throw new Error("Please enter a bigger word to check.")
+//         }
+//         displayOne.textContent = `The entered string is: ${input}`
+//         alert("Now enter the character you want to check at 2nd-4th position in the entered string below.")
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+// btnTwo.addEventListener("click", () => {
+//     try {
+//         const input = inputOne.value.trim().toLowerCase()
+//         const charToCheck = inputTwo.value.trim().toLowerCase()
+//         if (!input) {
+//             throw new Error("Please enter a string first to check the condition.")
+//         }
+//         if (!charToCheck) {
+//             throw new Error("Please enter a character to continue.")
+//         }
+//         if (/\d/.test(charToCheck) || /[^\w\s]/.test(charToCheck)) {
+//             throw new Error("We  take only string values.")
+//         }
+//         if (charToCheck.length !== 1) {
+//             throw new Error("Please enter a single character to check.")
+//         }
+//         let charAtIndex2To4 = input.slice(1, 3)
+//         let charCondition = charAtIndex2To4.includes(charToCheck)
+//         if (charCondition) {
+//             result.textContent = `The character '${charToCheck.toUpperCase()}' exists between the 2nd and 4th positions in the entered string.`
+//         } else {
+//             result.textContent = `The character '${charToCheck}' does not exist between the 2nd and 4th positions in the entered string.`
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 38. Write a JavaScript program to produce a new string that has the first 3 characters in lower case from a given string. If the string length is less than 3 convert all the characters to upper case.  
+
+const input = document.getElementById("q-38-input")
+const btn = document.getElementById("q-38-btn")
+const display = document.getElementById("q-38-display")
+const result = document.getElementById("q-38-result")
+
+btn.addEventListener("click", () => {
     try {
-        const input = inputOne.value.trim().toLowerCase()
-        if (!input) {
-            throw new Error("Please enter a value to continue.")
+        const userInput = input.value.trim().toLowerCase()
+        if (!userInput) {
+            throw new Error("Please enter a value to check.")
         }
-        if (/\d/.test(input) || /[^\w\s]/.test(input)) {
-            throw new Error("We take only string values")
+        if (/\d/.test(userInput) || /[^\w\s]/.test(userInput)) {
+            throw new Error("We only take a string value.")
         }
-        if (input.length < 4) {
-            throw new Error("Please enter a bigger word to check.")
+        display.textContent = `Input value is: ${userInput}`
+        if (userInput.length < 3) {
+            result.textContent = `The updated string is: ${userInput.toUpperCase()}`
         }
-        displayOne.textContent = `The entered string is: ${input}`
-        alert("Now enter the character you want to check at 2nd-4th position in the entered string below.")
-    } catch (e) {
-        alert(e.message)
-    }
-})
-btnTwo.addEventListener("click", () => {
-    try {
-        const input = inputOne.value.trim().toLowerCase()
-        const charToCheck = inputTwo.value.trim().toLowerCase()
-        if (!input) {
-            throw new Error("Please enter a string first to check the condition.")
-        }
-        if (!charToCheck) {
-            throw new Error("Please enter a character to continue.")
-        }
-        if (/\d/.test(charToCheck) || /[^\w\s]/.test(charToCheck)) {
-            throw new Error("We  take only string values.")
-        }
-        if (charToCheck.length !== 1) {
-            throw new Error("Please enter a single character to check.")
-        }
-        let charAtIndex2To4 = input.slice(1, 3)
-        let charCondition = charAtIndex2To4.includes(charToCheck)
-        if (charCondition) {
-            result.textContent = `The character '${charToCheck.toUpperCase()}' exists between the 2nd and 4th positions in the entered string.`
-        } else {
-            result.textContent = `The character '${charToCheck}' does not exist between the 2nd and 4th positions in the entered string.`
-        }
+        const updatedStringPart = userInput.slice(0, 3).toLowerCase()
+        const updatedLeftOverPart = userInput.slice(3, userInput.length).toUpperCase()
+        result.textContent = `The updated string is: ${updatedStringPart + updatedLeftOverPart}.`
     } catch (e) {
         alert(e.message)
     }
