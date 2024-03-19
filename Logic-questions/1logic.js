@@ -50,15 +50,12 @@
     function celsiusToFahrenheit(celsius) {
         return (celsius * 9 / 5) + 32
     }
-
     function fahrenheitToCelsius(fahrenheit) {
         return (fahrenheit - 32) * 5/9
     }
-
     function convertTemperature() {
         let temperatureType = prompt("Enter temperature type (C for Clesius, F for Fahrenheit): ").toUpperCase()
         let temperature = parseFloat(prompt("Enter the temperature value:"))
-
         if (temperatureType === "C") {
             temperature = celsiusToFahrenheit(temperature)
             console.log(`The temperature in Fahrenheit is: ${temperature.toFixed(4)} F`)
@@ -70,7 +67,5 @@
         else {
             console.log("Invalid temperature type. Please enter 'C' or 'F'.")
         }
-
     }
-
     convertTemperature();

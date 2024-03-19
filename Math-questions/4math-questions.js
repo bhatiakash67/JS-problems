@@ -510,42 +510,76 @@
 
 // 37. Write a JavaScript program that checks whether the last digit of three positive integers is the same. 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const inputs = document.querySelectorAll(".q-37-input")
-    const btn = document.getElementById("q-37-btn")
-    const displayedNumbers = document.querySelectorAll(".q-37-display")
-    const result = document.getElementById("q-37-result")
+// document.addEventListener("DOMContentLoaded", function () {
+//     const inputs = document.querySelectorAll(".q-37-input")
+//     const btn = document.getElementById("q-37-btn")
+//     const displayedNumbers = document.querySelectorAll(".q-37-display")
+//     const result = document.getElementById("q-37-result")
 
-    function handleButtonClick() {
-        try {
-            const numbersToCheck = Array.from(inputs).map((number) => parseFloat(number.value))
-            if (numbersToCheck.some(isNaN)) {
-                throw new Error("Please enter all the values to check.")
-            }
-            const positiveNumbers = numbersToCheck.filter(number => number > 0)
-            if (positiveNumbers.length !== numbersToCheck.length) {
-                throw new Error("Please enter positive values only.")
-            }
-            displayedNumbers.forEach((displayedNumber, index) => {
-                const value = inputs[index].value
-                displayedNumber.textContent = `The ${index + 1} input is: ${value}`
-            })
-            const lastDigits = positiveNumbers.map((number) => number % 10)
-            const firstNumber = lastDigits[0]
-            const areLastDigitsSame = lastDigits.every(digit => digit === firstNumber)
-            if (areLastDigitsSame) {
-                result.textContent = `Yes, the last digit of the inputs are the same.`
-            } else {
-                result.textContent = `No, the last digit of the inputs are not the same.`
-            }
-        } catch (e) {
-            alert(e.message)
+//     function handleButtonClick() {
+//         try {
+//             const numbersToCheck = Array.from(inputs).map((number) => parseFloat(number.value))
+//             if (numbersToCheck.some(isNaN)) {
+//                 throw new Error("Please enter all the values to check.")
+//             }
+//             const positiveNumbers = numbersToCheck.filter(number => number > 0)
+//             if (positiveNumbers.length !== numbersToCheck.length) {
+//                 throw new Error("Please enter positive values only.")
+//             }
+//             displayedNumbers.forEach((displayedNumber, index) => {
+//                 const value = inputs[index].value
+//                 displayedNumber.textContent = `The ${index + 1} input is: ${value}`
+//             })
+//             const lastDigits = positiveNumbers.map((number) => number % 10)
+//             const firstNumber = lastDigits[0]
+//             const areLastDigitsSame = lastDigits.every(digit => digit === firstNumber)
+//             if (areLastDigitsSame) {
+//                 result.textContent = `Yes, the last digit of the inputs are the same.`
+//             } else {
+//                 result.textContent = `No, the last digit of the inputs are not the same.`
+//             }
+//         } catch (e) {
+//             alert(e.message)
+//         }
+//     }
+//     btn.addEventListener("click", handleButtonClick)
+//     document.addEventListener("keydown", (e) => {
+//         if (e.key === 'Enter') {
+//             handleButtonClick()
+//         }
+//     })
+// })
+
+// 39. Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80.
+
+const inputs = document.querySelectorAll(".q-39-input")
+const btn = document.getElementById("q-39-btn")
+const displays = document.querySelectorAll(".q-39-display")
+const sumDisplay = document.getElementById("q-39-sum")
+const result = document.getElementById("q-39-result")
+
+btn.addEventListener("click", () => {
+    try {
+        const numbers = Array.from(inputs).map((number) => parseFloat(number.value))
+        if (numbers.some(isNaN)) {
+            throw new Error("Please enter all the values.")
         }
+        displays.forEach((display, index) => {
+            const content = inputs[index].value
+            if(display){
+                display.textContent = `The ${index + 1} input is: ${content}`
+            }
+        })
+        const sumOfTheInputs = numbers.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        sumDisplay.textContent = `The sum of the inputs : ${sumOfTheInputs}.`
+        if(sumOfTheInputs >= 50 && sumOfTheInputs <= 80){
+            result.textContent = `The result for the sum being in the range of 50-80 is: 65.`
+        }else{
+            result.textContent = `The result for the sum not being in the range of 50-80 is: 80.`
+        }
+    } catch (e) {
+        alert(e.message)
     }
-    btn.addEventListener("click", handleButtonClick)
-    document.addEventListener("keydown", (e) => {
-        if (e.key === 'Enter') {
-            handleButtonClick()
-        }
-    })
 })
