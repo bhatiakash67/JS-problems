@@ -552,33 +552,74 @@
 
 // 39. Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80.
 
-const inputs = document.querySelectorAll(".q-39-input")
-const btn = document.getElementById("q-39-btn")
-const displays = document.querySelectorAll(".q-39-display")
-const sumDisplay = document.getElementById("q-39-sum")
-const result = document.getElementById("q-39-result")
+// const inputs = document.querySelectorAll(".q-39-input")
+// const btn = document.getElementById("q-39-btn")
+// const displays = document.querySelectorAll(".q-39-display")
+// const sumDisplay = document.getElementById("q-39-sum")
+// const result = document.getElementById("q-39-result")
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const numbers = Array.from(inputs).map((number) => parseFloat(number.value))
+//         if (numbers.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         displays.forEach((display, index) => {
+//             const content = inputs[index].value
+//             if(display){
+//                 display.textContent = `The ${index + 1} input is: ${content}`
+//             }
+//         })
+//         const sumOfTheInputs = numbers.reduce((accumulator, currentValue) => {
+//             return accumulator + currentValue
+//         }, 0)
+//         sumDisplay.textContent = `The sum of the inputs : ${sumOfTheInputs}.`
+//         if(sumOfTheInputs >= 50 && sumOfTheInputs <= 80){
+//             result.textContent = `The result for the sum being in the range of 50-80 is: 65.`
+//         }else{
+//             result.textContent = `The result for the sum not being in the range of 50-80 is: 80.`
+//         }
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 40. Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.  
+
+const inputs = document.querySelectorAll(".q-40-input")
+const btn = document.getElementById("q-40-btn")
+const displays = document.querySelectorAll(".q-40-display")
+const equalDisplay = document.getElementById("q-40-equal")
+const diffDisplay = document.getElementById("q-40-diff")
+const sumDisplay = document.getElementById("q-40-sum")
 
 btn.addEventListener("click", () => {
     try {
-        const numbers = Array.from(inputs).map((number) => parseFloat(number.value))
-        if (numbers.some(isNaN)) {
+        const enteredValues = Array.from(inputs).map((values) => parseFloat(values.value))
+        if (enteredValues.some(isNaN)) {
             throw new Error("Please enter all the values.")
         }
-        displays.forEach((display, index) => {
-            const content = inputs[index].value
-            if(display){
-                display.textContent = `The ${index + 1} input is: ${content}`
-            }
+
+        // Iterator to display the inputs values on to the browser screen 
+        displays.forEach((element, index) => {
+            const display = inputs[index].value
+            element.textContent = `The ${index + 1} input is: ${display}`
         })
-        const sumOfTheInputs = numbers.reduce((accumulator, currentValue) => {
-            return accumulator + currentValue
-        }, 0)
-        sumDisplay.textContent = `The sum of the inputs : ${sumOfTheInputs}.`
-        if(sumOfTheInputs >= 50 && sumOfTheInputs <= 80){
-            result.textContent = `The result for the sum being in the range of 50-80 is: 65.`
-        }else{
-            result.textContent = `The result for the sum not being in the range of 50-80 is: 80.`
-        }
+
+        // Sum displayer
+        const sum = enteredValues.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+        sumDisplay.textContent = `The sum of the numbers is: ${sum}`
+
+        // equality checker
+        const equalChecker = enteredValues.every(value => value === enteredValues[0])
+        equalDisplay.textContent = `All values are ${equalChecker ? 'equal.' : 'not equal.'}`
+
+        // Diffrence between numbers
+        const max = Math.max(...enteredValues)
+        const min = Math.min(...enteredValues)
+        const diff = max - min
+        diffDisplay.textContent = `The difference between maximum and minimum values is: ${diff}`
+
     } catch (e) {
         alert(e.message)
     }
