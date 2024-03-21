@@ -57,6 +57,7 @@ Explore the JavaScript concepts I've strengthened through hands-on practice. Eac
 - every(). 
 - concat()
 - filter()
+- sort()
 
 ### Concept 6: RegExp.
 - /\d/.test()

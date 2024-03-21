@@ -586,41 +586,75 @@
 
 // 40. Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.  
 
-const inputs = document.querySelectorAll(".q-40-input")
-const btn = document.getElementById("q-40-btn")
-const displays = document.querySelectorAll(".q-40-display")
-const equalDisplay = document.getElementById("q-40-equal")
-const diffDisplay = document.getElementById("q-40-diff")
-const sumDisplay = document.getElementById("q-40-sum")
+// const inputs = document.querySelectorAll(".q-40-input")
+// const btn = document.getElementById("q-40-btn")
+// const displays = document.querySelectorAll(".q-40-display")
+// const equalDisplay = document.getElementById("q-40-equal")
+// const diffDisplay = document.getElementById("q-40-diff")
+// const sumDisplay = document.getElementById("q-40-sum")
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const enteredValues = Array.from(inputs).map((values) => parseFloat(values.value))
+//         if (enteredValues.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+
+//         // Iterator to display the inputs values on to the browser screen 
+//         displays.forEach((element, index) => {
+//             const display = inputs[index].value
+//             element.textContent = `The ${index + 1} input is: ${display}`
+//         })
+
+//         // Sum displayer
+//         const sum = enteredValues.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+//         sumDisplay.textContent = `The sum of the numbers is: ${sum}`
+
+//         // equality checker
+//         const equalChecker = enteredValues.every(value => value === enteredValues[0])
+//         equalDisplay.textContent = `All values are ${equalChecker ? 'equal.' : 'not equal.'}`
+
+//         // Diffrence between numbers
+//         const max = Math.max(...enteredValues)
+//         const min = Math.min(...enteredValues)
+//         const diff = max - min
+//         diffDisplay.textContent = `The difference between maximum and minimum values is: ${diff}`
+
+//     } catch (e) {
+//         alert(e.message)
+//     }
+// })
+
+// 41. Write a JavaScript program to check a set of three numbers; if the three numbers are the same return 30; otherwise return 20; and if two numbers are the same return 40. 
+
+const userInputs = document.querySelectorAll(".q-41-input")
+const btn = document.getElementById("q-41-btn")
+const inputs = document.querySelectorAll(".q-41-display")
+const rslt = document.getElementById("q-41-result")
 
 btn.addEventListener("click", () => {
     try {
-        const enteredValues = Array.from(inputs).map((values) => parseFloat(values.value))
-        if (enteredValues.some(isNaN)) {
+        const numbers = Array.from(userInputs).map((inputs) => parseFloat(inputs.value))
+        if (numbers.some(isNaN)) {
             throw new Error("Please enter all the values.")
         }
-
-        // Iterator to display the inputs values on to the browser screen 
-        displays.forEach((element, index) => {
-            const display = inputs[index].value
-            element.textContent = `The ${index + 1} input is: ${display}`
+        inputs.forEach((number, index) => {
+            const display = userInputs[index].value
+            number.textContent = `The ${index + 1} input is: ${display}`
         })
 
-        // Sum displayer
-        const sum = enteredValues.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-        sumDisplay.textContent = `The sum of the numbers is: ${sum}`
+        numbers.sort((a, b) => a - b)
 
-        // equality checker
-        const equalChecker = enteredValues.every(value => value === enteredValues[0])
-        equalDisplay.textContent = `All values are ${equalChecker ? 'equal.' : 'not equal.'}`
+        let result = 20
 
-        // Diffrence between numbers
-        const max = Math.max(...enteredValues)
-        const min = Math.min(...enteredValues)
-        const diff = max - min
-        diffDisplay.textContent = `The difference between maximum and minimum values is: ${diff}`
-
-    } catch (e) {
-        alert(e.message)
+        if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
+            result = 30
+        }
+        else if (numbers[0] === numbers[1] || numbers[1] === numbers[2]) {
+            result = 40
+        }
+        rslt.textContent = `The result is: ${result}.`
+    } catch (error) {
+        alert(error.message)
     }
 })
