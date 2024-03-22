@@ -627,33 +627,79 @@
 
 // 41. Write a JavaScript program to check a set of three numbers; if the three numbers are the same return 30; otherwise return 20; and if two numbers are the same return 40. 
 
-const userInputs = document.querySelectorAll(".q-41-input")
-const btn = document.getElementById("q-41-btn")
-const inputs = document.querySelectorAll(".q-41-display")
-const rslt = document.getElementById("q-41-result")
+// const userInputs = document.querySelectorAll(".q-41-input")
+// const btn = document.getElementById("q-41-btn")
+// const inputs = document.querySelectorAll(".q-41-display")
+// const rslt = document.getElementById("q-41-result")
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const numbers = Array.from(userInputs).map((inputs) => parseFloat(inputs.value))
+//         if (numbers.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         inputs.forEach((number, index) => {
+//             const display = userInputs[index].value
+//             number.textContent = `The ${index + 1} input is: ${display}`
+//         })
+
+//         numbers.sort((a, b) => a - b)
+
+//         let result = 20
+
+//         if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
+//             result = 30
+//         }
+//         else if (numbers[0] === numbers[1] || numbers[1] === numbers[2]) {
+//             result = 40
+//         }
+//         rslt.textContent = `The result is: ${result}.`
+//     } catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 42. Write a JavaScript program to check from three given numbers (non negative integers) that two or all of them have the same rightmost digit.
+
+const inputs = document.querySelectorAll(".q-42-input")
+const btn = document.getElementById("q-42-btn")
+const visuals = document.querySelectorAll(".q-42-display")
+const result = document.getElementById("q-42-result")
 
 btn.addEventListener("click", () => {
     try {
-        const numbers = Array.from(userInputs).map((inputs) => parseFloat(inputs.value))
-        if (numbers.some(isNaN)) {
+        const userInputs = Array.from(inputs).map((elements) => parseFloat(elements.value))
+        if (userInputs.some(isNaN)) {
             throw new Error("Please enter all the values.")
         }
-        inputs.forEach((number, index) => {
-            const display = userInputs[index].value
-            number.textContent = `The ${index + 1} input is: ${display}`
+        for (let i = 0; i < userInputs.length; i++) {
+            if (userInputs[i] >= 0) {
+
+                const rightMostDigits = userInputs.map((right) => right % 10)
+                const areAllRightMostDigitsSame = rightMostDigits.every((digit) => digit === rightMostDigits[0])
+
+                if (areAllRightMostDigitsSame) {
+                    result.textContent = `All the inputs have the same rightmost value.`
+                }
+                else {
+                    
+                    const areTwoRightMostDigitsSame = rightMostDigits[0] === rightMostDigits[1] || rightMostDigits[1] === rightMostDigits[2] || rightMostDigits[0] === rightMostDigits[2]
+
+                    if (areTwoRightMostDigitsSame) {
+                        result.textContent = `Two or more inputs have the same rightmost value.`
+                    }
+                    else {
+                        result.textContent = `None of the inputs have the same rightmost value.`
+                    }
+                }
+            } else {
+                throw new Error("Please enter non negative integer values only.")
+            }
+        }
+        visuals.forEach((displays, index) => {
+            const display = inputs[index].value
+            displays.textContent = `The ${index + 1} inputs is: ${display}`
         })
-
-        numbers.sort((a, b) => a - b)
-
-        let result = 20
-
-        if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
-            result = 30
-        }
-        else if (numbers[0] === numbers[1] || numbers[1] === numbers[2]) {
-            result = 40
-        }
-        rslt.textContent = `The result is: ${result}.`
     } catch (error) {
         alert(error.message)
     }
