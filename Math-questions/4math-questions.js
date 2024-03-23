@@ -661,45 +661,79 @@
 
 // 42. Write a JavaScript program to check from three given numbers (non negative integers) that two or all of them have the same rightmost digit.
 
-const inputs = document.querySelectorAll(".q-42-input")
-const btn = document.getElementById("q-42-btn")
-const visuals = document.querySelectorAll(".q-42-display")
-const result = document.getElementById("q-42-result")
+// const inputs = document.querySelectorAll(".q-42-input")
+// const btn = document.getElementById("q-42-btn")
+// const visuals = document.querySelectorAll(".q-42-display")
+// const result = document.getElementById("q-42-result")
+
+// btn.addEventListener("click", () => {
+//     try {
+//         const userInputs = Array.from(inputs).map((elements) => parseFloat(elements.value))
+//         if (userInputs.some(isNaN)) {
+//             throw new Error("Please enter all the values.")
+//         }
+//         for (let i = 0; i < userInputs.length; i++) {
+//             if (userInputs[i] >= 0) {
+
+//                 const rightMostDigits = userInputs.map((right) => right % 10)
+//                 const areAllRightMostDigitsSame = rightMostDigits.every((digit) => digit === rightMostDigits[0])
+
+//                 if (areAllRightMostDigitsSame) {
+//                     result.textContent = `All the inputs have the same rightmost value.`
+//                 }
+//                 else {
+
+//                     const areTwoRightMostDigitsSame = rightMostDigits[0] === rightMostDigits[1] || rightMostDigits[1] === rightMostDigits[2] || rightMostDigits[0] === rightMostDigits[2]
+
+//                     if (areTwoRightMostDigitsSame) {
+//                         result.textContent = `Two or more inputs have the same rightmost value.`
+//                     }
+//                     else {
+//                         result.textContent = `None of the inputs have the same rightmost value.`
+//                     }
+//                 }
+//             } else {
+//                 throw new Error("Please enter non negative integer values only.")
+//             }
+//         }
+//         visuals.forEach((displays, index) => {
+//             const display = inputs[index].value
+//             displays.textContent = `The ${index + 1} inputs is: ${display}`
+//         })
+//     } catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+// 43. Write a JavaScript program that evaluates three given integers to determine if any one of them is greater than or equal to 20 and less than at least one of the other two.  
+
+const userInputs = document.querySelectorAll(".q-43-input")
+const btn = document.getElementById("q-43-btn")
+const displayedNumbers = document.querySelectorAll(".q-43-display")
+const result = document.getElementById("q-43-result")
 
 btn.addEventListener("click", () => {
     try {
-        const userInputs = Array.from(inputs).map((elements) => parseFloat(elements.value))
-        if (userInputs.some(isNaN)) {
-            throw new Error("Please enter all the values.")
+        const numbers = Array.from(userInputs).map((inputs) => parseFloat(inputs.value))
+        if (numbers.some(isNaN)) {
+            throw new Error("Please enter all the values")
         }
-        for (let i = 0; i < userInputs.length; i++) {
-            if (userInputs[i] >= 0) {
-
-                const rightMostDigits = userInputs.map((right) => right % 10)
-                const areAllRightMostDigitsSame = rightMostDigits.every((digit) => digit === rightMostDigits[0])
-
-                if (areAllRightMostDigitsSame) {
-                    result.textContent = `All the inputs have the same rightmost value.`
-                }
-                else {
-                    
-                    const areTwoRightMostDigitsSame = rightMostDigits[0] === rightMostDigits[1] || rightMostDigits[1] === rightMostDigits[2] || rightMostDigits[0] === rightMostDigits[2]
-
-                    if (areTwoRightMostDigitsSame) {
-                        result.textContent = `Two or more inputs have the same rightmost value.`
-                    }
-                    else {
-                        result.textContent = `None of the inputs have the same rightmost value.`
-                    }
-                }
-            } else {
-                throw new Error("Please enter non negative integer values only.")
+        displayedNumbers.forEach((displayedNumber, index) => {
+            const display = userInputs[index].value
+            displayedNumber.textContent = `The ${index + 1} input is: ${display}.`
+        })
+        let isConditionTrue = false;
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] >= 20 && ((numbers[i] < numbers[(i + 1) % 3]) || (numbers[i] < numbers[(i + 2) % 3]))) {
+                isConditionTrue = true;
+                break;
             }
         }
-        visuals.forEach((displays, index) => {
-            const display = inputs[index].value
-            displays.textContent = `The ${index + 1} inputs is: ${display}`
-        })
+        if (isConditionTrue) {
+            result.textContent = `It is true.`
+        } else {
+            result.textContent = `It is false.`
+        }
     } catch (error) {
         alert(error.message)
     }
