@@ -50,23 +50,43 @@
 
 //10a. Days left for Christmas
 
-let currentDate = new Date()
-const christmas = new Date("2024-12-25");
-let numberOfDaysLeft = Math.round((christmas - currentDate)/(1000 * 60 * 60 * 24))
-console.log(numberOfDaysLeft)
+// let currentDate = new Date()
+// const christmas = new Date("2024-12-25");
+// let numberOfDaysLeft = Math.round((christmas - currentDate)/(1000 * 60 * 60 * 24))
+// console.log(numberOfDaysLeft)
 
 // 10b. Number of days between dates
 
-const btn = document.getElementById("btn")
-const days = document.getElementById("value")
-const startDate = document.getElementById("start-date")
-const endDate = document.getElementById("end-date")
+// const btn = document.getElementById("btn")
+// const days = document.getElementById("value")
+// const startDate = document.getElementById("start-date")
+// const endDate = document.getElementById("end-date")
 
-btn.addEventListener("click", () => {
+// btn.addEventListener("click", () => {
 
-    const startDateValue = new Date(startDate.value)
-    const endDateValue = new Date(endDate.value)
-    const numberOfDays = Math.round((endDateValue - startDateValue)/(1000 * 60 * 60 * 24))
+//     const startDateValue = new Date(startDate.value)
+//     const endDateValue = new Date(endDate.value)
+//     const numberOfDays = Math.round((endDateValue - startDateValue)/(1000 * 60 * 60 * 24))
 
-    days.textContent = `The number of days between ${startDateValue.toDateString()} and ${endDateValue.toDateString()} is ${numberOfDays} days.`
-})
+//     days.textContent = `The number of days between ${startDateValue.toDateString()} and ${endDateValue.toDateString()} is ${numberOfDays} days.`
+// })
+
+// let a = new Date()
+// let b = a.getDay()
+// let daylist = ["Sunday", "monday","tuesday","wednesday","thursday","friday", "saturday"]
+// console.log("Today is: "+ daylist[b]);
+// let hr = a.getHours()
+// let hrr = (hr>12)? hr-12:hr
+// let min = a.getMinutes()
+// let sec = a.getSeconds()
+// let prepand = (hr>=12?"PM":"AM")
+
+// console.log("Current time is : "+hrr+prepand+":"+min+":"+sec);
+console.log(a);
+console.log(func());
+var a = 7
+function func() {
+    console.log("hello hel000lo");
+}
+// func()
+

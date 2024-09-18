@@ -741,54 +741,72 @@
 
 // 44. Write a JavaScript program that checks two integer values and returns true if either one is 15 or if their sum or difference is 15.  
 
-const inputs = document.querySelectorAll(".q-44-input")
-const inputValues = document.querySelectorAll(".q-44-display")
-const btn = document.getElementById("q-44-btn")
-const result = document.getElementById("q-44-result")
-const errorElement = document.querySelectorAll(".error")
+// const inputs = document.querySelectorAll(".q-44-input")
+// const inputValues = document.querySelectorAll(".q-44-display")
+// const btn = document.getElementById("q-44-btn")
+// const result = document.getElementById("q-44-result")
+// const errorElement = document.querySelectorAll(".error")
 
-btn.addEventListener("click", () => {
-    try {
-        const numbers = Array.from(inputs).map((inputs) => parseFloat(inputs.value))
-        // To check the input values
-        // console.log(numbers);
+// btn.addEventListener("click", () => {
+//     try {
+//         const numbers = Array.from(inputs).map((inputs) => parseFloat(inputs.value))
+//         // To check the input values
+//         // console.log(numbers);
 
-        let messages = []
-        if (numbers.some(isNaN)) {
-            messages.push("Please enter the input values.")
-        }
-        if (messages.length === 0) {
-            errorElement.forEach(error => error.textContent = ``)
-        } else {
-            errorElement.forEach((error, index) => {
-                if (index < messages.length) {
-                    error.textContent = messages[index]
-                } else {
-                    error.textContent = ''
-                }
-            })
-        }
-        inputValues.forEach((inputValue, index) => {
-            const display = inputs[index].value
-            inputValue.textContent = `The ${index + 1} input is: ${display}.`
-        })
-        for (let i = 0; i < numbers.length - 1; i++) {
-            for (let j = i + 1; j < numbers.length; j++) {
-                const sum = numbers[i] + numbers[j]
-                const diff = Math.abs(numbers[i] - numbers[j])
-                if (sum === 15 || diff === 15) {
-                    result.textContent = "The sum or difference of two inputs is 15."
-                    return;
-                }
-            }
-        }
-        if (numbers.includes(15)) {
-            result.textContent = "One of the inputs contains 15."
-        } else {
-            result.textContent = "None of the conditions are satisfied."
-        }
+//         let messages = []
+//         if (numbers.some(isNaN)) {
+//             messages.push("Please enter the input values.")
+//         }
+//         if (messages.length === 0) {
+//             errorElement.forEach(error => error.textContent = ``)
+//         } else {
+//             errorElement.forEach((error, index) => {
+//                 if (index < messages.length) {
+//                     error.textContent = messages[index]
+//                 } else {
+//                     error.textContent = ''
+//                 }
+//             })
+//         }
+//         inputValues.forEach((inputValue, index) => {
+//             const display = inputs[index].value
+//             inputValue.textContent = `The ${index + 1} input is: ${display}.`
+//         })
+//         for (let i = 0; i < numbers.length - 1; i++) {
+//             for (let j = i + 1; j < numbers.length; j++) {
+//                 const sum = numbers[i] + numbers[j]
+//                 const diff = Math.abs(numbers[i] - numbers[j])
+//                 if (sum === 15 || diff === 15) {
+//                     result.textContent = "The sum or difference of two inputs is 15."
+//                     return;
+//                 }
+//             }
+//         }
+//         if (numbers.includes(15)) {
+//             result.textContent = "One of the inputs contains 15."
+//         } else {
+//             result.textContent = "None of the conditions are satisfied."
+//         }
 
-    } catch (error) {
-        alert(error.message)
-    }
-})
+//     } catch (error) {
+//         alert(error.message)
+//     }
+// })
+
+
+// 45. Write a JavaScript program to check two given non-negative integers if one (not both) is a multiple of 7 or 11. 
+
+// const inputs = document.querySelectorAll(".q-45-input")
+// const btn = document.getElementById("q-45-btn")
+// const result = document.getElementById("q-45-result")
+// const inputsToBeDisplayed = document.querySelectorAll(".q-45-display")
+
+// btn.addEventListener("click", () => {
+//     const numbers = Array.from(inputs).map((input) => parseFloat(input.value))
+
+//     inputsToBeDisplayed.forEach((inputs, index) => {
+//         const display = inputs[index].value
+        
+//     })
+
+// })
